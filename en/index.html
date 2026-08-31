@@ -5,332 +5,746 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Filtario — Hire Faster with AI. From 30 Days to 7.</title>
   <meta name="description" content="AI-powered mass hiring automation. Resume screening, automated interviews, skills testing. Cut your hiring cycle from 30 days to 7."/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-text { background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
-    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(99,102,241,0.15); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{overflow-x:hidden;font-family:'Inter',system-ui,sans-serif}
+    a{text-decoration:none;color:inherit}
+    img,svg{display:block;max-width:100%}
+
+    :root{
+      --bg:#F7F8FC;
+      --navy:#1D2340;
+      --accent:#5B76FF;
+      --accent-h:#4A65EE;
+      --green:#22C55E;
+      --secondary:#6E758C;
+      --border:#E4E8F2;
+      --card:#FFFFFF;
+      --lavender:#F3F1FF;
+      --serif:'Playfair Display',Georgia,serif;
+      --sans:'Inter',system-ui,sans-serif;
+      --w:1200px;
+    }
+
+    .container{max-width:var(--w);margin:0 auto;padding:0 40px}
+    body{background:var(--bg);color:var(--navy)}
+
+    /* NAV */
+    .site-header{padding:20px 40px;position:sticky;top:0;z-index:200;background:var(--bg)}
+    .nav-pill{max-width:var(--w);margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:10px 14px 10px 28px;display:flex;align-items:center;box-shadow:0 2px 16px rgba(29,35,64,.06)}
+    .nav-logo{font-size:16px;font-weight:700;color:var(--navy);letter-spacing:-.3px;margin-right:auto}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:2px;margin:0 16px}
+    .nav-links a{font-size:14px;color:var(--secondary);padding:8px 16px;border-radius:100px;transition:all .18s}
+    .nav-links a:hover{color:var(--navy);background:var(--bg)}
+    .nav-cta{background:var(--accent);color:#fff;border-radius:100px;padding:10px 24px;font-size:14px;font-weight:500;transition:all .2s}
+    .nav-cta:hover{background:var(--accent-h);box-shadow:0 4px 16px rgba(91,118,255,.4)}
+
+    /* HERO */
+    .s-hero{padding:80px 0 96px}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+    .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero-h1{font-family:var(--serif);font-size:clamp(40px,4vw,58px);font-weight:500;line-height:1.1;letter-spacing:-.5px;color:var(--navy);margin-bottom:20px}
+    .hero-h1 em{color:var(--accent);font-style:italic}
+    .hero-sub{font-size:17px;line-height:1.75;color:var(--secondary);margin-bottom:36px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:600;transition:all .2s}
+    .btn-primary:hover{background:var(--accent-h);box-shadow:0 6px 24px rgba(91,118,255,.35);transform:translateY(-1px)}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--navy);border:1.5px solid var(--border);border-radius:14px;padding:13px 28px;font-size:15px;font-weight:500;transition:all .2s}
+    .btn-outline:hover{border-color:var(--navy);transform:translateY(-1px)}
+    .hero-trust{display:flex;align-items:center;gap:16px}
+    .trust-avatars{display:flex}
+    .trust-avatars span{width:32px;height:32px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
+    .trust-avatars span:first-child{margin-left:0}
+    .trust-text{font-size:13px;color:var(--secondary)}
+    .trust-text strong{color:var(--navy)}
+
+    /* Hero right — stat cards */
+    .hero-cards{display:flex;flex-direction:column;gap:14px}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px 28px;box-shadow:0 4px 24px rgba(29,35,64,.07)}
+    .stat-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+    .stat-label{font-size:12px;font-weight:600;color:var(--secondary);letter-spacing:.5px;text-transform:uppercase}
+    .stat-badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px}
+    .badge-green{background:#DCFCE7;color:#15803D}
+    .badge-blue{background:#EEF1FF;color:var(--accent)}
+    .stat-number{font-family:var(--serif);font-size:44px;font-weight:500;color:var(--navy);line-height:1}
+    .stat-desc{font-size:13px;color:var(--secondary);margin-top:4px}
+    .stat-bar-wrap{margin-top:14px;height:4px;background:var(--border);border-radius:4px;overflow:hidden}
+    .stat-bar{height:100%;border-radius:4px;background:var(--accent)}
+    .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+    /* LOGOS */
+    .s-logos{padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card)}
+    .logos-label{text-align:center;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--secondary);margin-bottom:28px}
+    .logos-grid{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap}
+    .logo-item{font-size:17px;font-weight:700;color:#C8CEDB;letter-spacing:-.3px;transition:color .2s}
+    .logo-item:hover{color:var(--secondary)}
+
+    /* SECTIONS */
+    .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--secondary);margin-bottom:12px}
+    .section-h2{font-family:var(--serif);font-size:clamp(32px,3.5vw,46px);font-weight:500;line-height:1.15;color:var(--navy);margin-bottom:16px}
+    .section-sub{font-size:16px;line-height:1.75;color:var(--secondary);max-width:540px;margin-bottom:56px}
+
+    /* PROBLEM */
+    .s-problem{padding:96px 0;background:var(--bg)}
+    .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .problem-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px;transition:box-shadow .2s}
+    .problem-card:hover{box-shadow:0 8px 32px rgba(29,35,64,.09)}
+    .problem-icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+    .icon-red{background:#FEE2E2}
+    .icon-amber{background:#FEF3C7}
+    .icon-purple{background:#EDE9FE}
+    .problem-card h3{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:10px}
+    .problem-card p{font-size:14px;line-height:1.7;color:var(--secondary)}
+
+    /* FEATURES */
+    .s-features{padding:96px 0;background:var(--card)}
+    .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:56px}
+    .feature-card{background:var(--bg);border:1px solid var(--border);border-radius:24px;padding:32px 36px;display:flex;gap:20px;transition:box-shadow .2s,border-color .2s}
+    .feature-card:hover{box-shadow:0 8px 32px rgba(29,35,64,.09);border-color:#D0D7F0}
+    .feature-icon{width:52px;height:52px;background:var(--lavender);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+    .feature-card h3{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:8px}
+    .feature-card p{font-size:14px;line-height:1.7;color:var(--secondary)}
+
+    /* HOW IT WORKS */
+    .s-how{padding:96px 0;background:var(--lavender)}
+    .how-steps{display:flex;flex-direction:column;gap:16px;margin-top:56px;max-width:780px;margin-left:auto;margin-right:auto}
+    .how-step{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px 40px;display:flex;gap:28px;align-items:flex-start}
+    .step-num{width:52px;height:52px;background:var(--accent);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:22px;font-weight:500;flex-shrink:0}
+    .how-step h3{font-size:19px;font-weight:600;color:var(--navy);margin-bottom:8px}
+    .how-step p{font-size:15px;line-height:1.7;color:var(--secondary)}
+
+    /* CASE STUDIES */
+    .s-case{padding:96px 0;background:var(--bg)}
+    .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+    .case-card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px;transition:box-shadow .2s}
+    .case-card:hover{box-shadow:0 8px 32px rgba(29,35,64,.09)}
+    .case-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);background:var(--lavender);padding:5px 12px;border-radius:100px;margin-bottom:20px}
+    .case-card h3{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--navy);margin-bottom:12px;line-height:1.3}
+    .case-card p{font-size:14px;line-height:1.7;color:var(--secondary);margin-bottom:24px}
+    .case-metrics{display:flex;gap:24px}
+    .case-metric-num{font-family:var(--serif);font-size:32px;font-weight:500;color:var(--accent)}
+    .case-metric-label{font-size:12px;color:var(--secondary);margin-top:2px}
+    .case-divider{width:1px;background:var(--border)}
+
+    /* TESTIMONIALS */
+    .s-testimonials{padding:96px 0;background:var(--card)}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+    .testimonial-card{background:var(--bg);border:1px solid var(--border);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:20px;transition:box-shadow .2s}
+    .testimonial-card:hover{box-shadow:0 8px 32px rgba(29,35,64,.09)}
+    .stars{display:flex;gap:3px;color:#F59E0B;font-size:15px}
+    .testimonial-text{font-size:15px;line-height:1.75;color:var(--navy);flex:1;font-style:italic}
+    .testimonial-author{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid var(--border)}
+    .author-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+    .author-name{font-size:14px;font-weight:600;color:var(--navy)}
+    .author-role{font-size:12px;color:var(--secondary);margin-top:2px}
+
+    /* INDUSTRIES */
+    .s-industries{padding:96px 0;background:var(--bg)}
+    .industries-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+    .industry-tile{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all .2s}
+    .industry-tile:hover{border-color:var(--accent);box-shadow:0 6px 24px rgba(91,118,255,.12)}
+    .industry-emoji{font-size:32px;margin-bottom:12px}
+    .industry-name{font-size:14px;font-weight:600;color:var(--navy)}
+
+    /* PRICING */
+    .s-pricing{padding:96px 0;background:var(--lavender)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+    .pricing-card{background:var(--card);border:2px solid var(--border);border-radius:28px;padding:36px;display:flex;flex-direction:column;transition:box-shadow .2s}
+    .pricing-card:hover{box-shadow:0 10px 40px rgba(29,35,64,.1)}
+    .pricing-card.featured{background:var(--navy);border-color:var(--navy);color:#fff}
+    .pricing-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:20px}
+    .badge-popular{background:rgba(255,255,255,.15);color:#A5B4FF}
+    .badge-starter{background:var(--lavender);color:var(--accent)}
+    .badge-enterprise{background:#F0FDF4;color:#15803D}
+    .pricing-name{font-size:20px;font-weight:700;margin-bottom:6px}
+    .pricing-card.featured .pricing-name{color:#fff}
+    .pricing-desc{font-size:14px;color:var(--secondary);margin-bottom:28px}
+    .pricing-card.featured .pricing-desc{color:rgba(255,255,255,.6)}
+    .pricing-price{margin-bottom:28px}
+    .price-amount{font-family:var(--serif);font-size:52px;font-weight:500;color:var(--navy);line-height:1}
+    .pricing-card.featured .price-amount{color:#fff}
+    .price-period{font-size:14px;color:var(--secondary);margin-top:4px}
+    .pricing-card.featured .price-period{color:rgba(255,255,255,.6)}
+    .pricing-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px;flex:1}
+    .pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55;color:var(--secondary)}
+    .pricing-card.featured .pricing-features li{color:rgba(255,255,255,.75)}
+    .check-yes{color:#22C55E;font-size:16px;flex-shrink:0;margin-top:-1px}
+    .check-no{color:#CBD5E1;font-size:16px;flex-shrink:0;margin-top:-1px}
+    .pricing-card.featured .check-yes{color:#4ADE80}
+    .pricing-cta{display:block;text-align:center;padding:14px;border-radius:14px;font-size:15px;font-weight:600;transition:all .2s;margin-top:auto}
+    .cta-outline{border:2px solid var(--border);color:var(--navy)}
+    .cta-outline:hover{border-color:var(--accent);color:var(--accent)}
+    .cta-white{background:#fff;color:var(--accent)}
+    .cta-white:hover{background:#EEF1FF}
+    .cta-accent{background:var(--accent);color:#fff}
+    .cta-accent:hover{background:var(--accent-h);box-shadow:0 6px 20px rgba(91,118,255,.35)}
+    .pricing-note{text-align:center;font-size:13px;color:var(--secondary);margin-top:28px}
+
+    /* FAQ */
+    .s-faq{padding:96px 0;background:var(--bg)}
+    .faq-list{max-width:720px;margin:56px auto 0;display:flex;flex-direction:column;gap:6px}
+    .faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .faq-q{width:100%;text-align:left;padding:22px 28px;font-size:16px;font-weight:600;color:var(--navy);background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:var(--sans)}
+    .faq-q span{font-size:20px;color:var(--secondary);flex-shrink:0}
+    .faq-a{padding:0 28px 22px;font-size:15px;line-height:1.75;color:var(--secondary)}
+
+    /* FINAL CTA */
+    .s-cta{padding:96px 0;background:var(--navy);text-align:center}
+    .s-cta h2{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:500;color:#fff;margin-bottom:16px;line-height:1.15}
+    .s-cta p{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:36px}
+    .cta-btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--accent);border-radius:16px;padding:16px 36px;font-size:16px;font-weight:600;transition:all .2s}
+    .cta-btn-white:hover{background:#EEF1FF;transform:translateY(-1px)}
+    .cta-fine{font-size:13px;color:rgba(255,255,255,.35);margin-top:16px}
+
+    /* FOOTER */
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.08);padding:40px 0}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .footer-logo{font-size:16px;font-weight:700;color:#fff}
+    .footer-logo span{color:#A5B4FF}
+    .footer-copy{font-size:13px;color:rgba(255,255,255,.35)}
+    .footer-links{display:flex;gap:24px}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,.45);transition:color .2s}
+    .footer-links a:hover{color:rgba(255,255,255,.85)}
+
+    @media(max-width:900px){
+      .hero-inner,.case-grid,.problem-grid,.features-grid,.testimonials-grid,.pricing-grid,.industries-grid{grid-template-columns:1fr}
+      .stat-row{grid-template-columns:1fr 1fr}
+      .nav-links{display:none}
+      .container{padding:0 20px}
+      .site-header{padding:16px 20px}
+    }
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
+<body>
 
-  <!-- NAV -->
-  <nav class="border-b border-gray-100 px-6 py-4 sticky top-0 bg-white/95 backdrop-blur z-50">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">F</span>
+<!-- NAV -->
+<header class="site-header">
+  <div class="nav-pill">
+    <div class="nav-logo">Filtar<span>io</span></div>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="mailto:hello@filtario.com" class="nav-cta">Book a demo</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="s-hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>AI-Powered Mass Hiring</div>
+        <h1 class="hero-h1">Hire at scale.<br/><em>From 30 days to 7.</em></h1>
+        <p class="hero-sub">Filtario screens thousands of resumes, runs AI-powered first-round interviews, and delivers a ranked shortlist — so your team focuses only on people worth hiring.</p>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn-primary">See pricing →</a>
+          <a href="#how-it-works" class="btn-outline">How it works</a>
         </div>
-        <span class="text-xl font-bold">Filtario</span>
-      </div>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="#features" class="hover:text-gray-900 transition">Features</a>
-        <a href="#how-it-works" class="hover:text-gray-900 transition">How it works</a>
-        <a href="#pricing" class="hover:text-gray-900 transition">Pricing</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="#pricing" class="text-sm font-semibold text-gray-600 hover:text-gray-900 hidden md:block">Sign in</a>
-        <a href="#pricing" class="gradient-bg text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">
-          Start free trial
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
-    <div class="text-center max-w-4xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-semibold px-4 py-2 rounded-full mb-8">
-        <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-        AI-Powered Mass Hiring Automation
-      </div>
-      <h1 class="text-6xl font-black leading-tight tracking-tight mb-6">
-        Hire at scale.<br/>
-        <span class="gradient-text">From 30 days to 7.</span>
-      </h1>
-      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Filtario screens thousands of resumes, conducts AI-powered interviews, and ranks candidates automatically — so your team focuses only on the best people.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-        <a href="#pricing" class="gradient-bg text-white font-bold text-lg px-8 py-4 rounded-2xl hover:opacity-90 transition shadow-lg shadow-indigo-200">
-          Start free — 14 days
-        </a>
-        <a href="#how-it-works" class="text-gray-700 font-semibold text-lg px-8 py-4 rounded-2xl border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition">
-          See how it works
-        </a>
-      </div>
-      <p class="text-sm text-gray-400">No credit card required · Cancel anytime · Setup in 10 minutes</p>
-    </div>
-
-    <!-- Stats -->
-    <div class="grid grid-cols-3 gap-6 mt-20 max-w-3xl mx-auto">
-      <div class="text-center">
-        <p class="text-5xl font-black text-indigo-600 mb-1">80%</p>
-        <p class="text-sm text-gray-500 font-medium">Less manual work<br/>for your recruiters</p>
-      </div>
-      <div class="text-center border-x border-gray-100">
-        <p class="text-5xl font-black text-indigo-600 mb-1">7×</p>
-        <p class="text-sm text-gray-500 font-medium">Faster hiring<br/>cycle on average</p>
-      </div>
-      <div class="text-center">
-        <p class="text-5xl font-black text-indigo-600 mb-1">96%</p>
-        <p class="text-sm text-gray-500 font-medium">Candidate evaluation<br/>accuracy</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROBLEM -->
-  <section class="bg-gray-50 py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">The problem</p>
-      <h2 class="text-4xl font-black text-center mb-14">Mass hiring is broken.<br/>It doesn't have to be.</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
-          <div class="text-4xl mb-4">📥</div>
-          <h3 class="font-bold text-lg mb-3">Hundreds of resumes, no time</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">A single job post generates 200-500 applications. Your team manually reads each one. Most of their day, gone.</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
-          <div class="text-4xl mb-4">📞</div>
-          <h3 class="font-bold text-lg mb-3">Screening calls eat weeks</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Scheduling and running first-round calls for 50 candidates takes 2-3 weeks before you even get to the real interviews.</p>
-        </div>
-        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
-          <div class="text-4xl mb-4">🔁</div>
-          <h3 class="font-bold text-lg mb-3">The best candidates leave</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Top talent accepts offers elsewhere while you're still reviewing applications. Slow hiring means losing to faster competitors.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Features</p>
-      <h2 class="text-4xl font-black text-center mb-16">Everything you need to hire at scale</h2>
-
-      <div class="grid md:grid-cols-2 gap-8">
-
-        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">📄</div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">AI Resume Screening</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Upload thousands of CVs. Our AI ranks every candidate by match quality in minutes — not days. Custom scoring criteria per role.</p>
+        <div class="hero-trust">
+          <div class="trust-avatars">
+            <span style="background:#5B76FF">S</span>
+            <span style="background:#22C55E">M</span>
+            <span style="background:#F59E0B">J</span>
+            <span style="background:#EF4444">R</span>
           </div>
+          <div class="trust-text"><strong>140+ hiring teams</strong> across retail, logistics &amp; call centers</div>
         </div>
-
-        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">🤖</div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Automated AI Interviews</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">A virtual interviewer conducts first-round interviews 24/7. Candidates answer at their own time. You get structured reports.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">🎯</div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Skills Testing</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Verify what candidates can actually do — not just what's on their CV. Customizable tests for any role or industry.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">🔗</div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Unified Application Hub</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Aggregate candidates from Indeed, LinkedIn, and other job boards into one pipeline. No more switching between tabs.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">📊</div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Kanban Hiring Pipeline</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Visual board showing every candidate's stage. Your whole team sees the same picture. Nothing falls through the cracks.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
-          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">📈</div>
-          <div>
-            <h3 class="font-bold text-lg mb-2">Hiring Analytics</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Time-to-hire, source quality, funnel conversion — all in one dashboard. Know exactly where your pipeline slows down.</p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="bg-gray-50 py-24 px-6">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">How it works</p>
-      <h2 class="text-4xl font-black text-center mb-16">From job post to shortlist in 7 days</h2>
-
-      <div class="space-y-6">
-        <div class="flex gap-6 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-black text-xl">1</div>
-          <div>
-            <h3 class="font-bold text-xl mb-2">Post your job & set criteria</h3>
-            <p class="text-gray-500 leading-relaxed">Define the role, required skills, and what "great" looks like. Takes 10 minutes. Filtario learns your hiring standards.</p>
+      <div class="hero-cards">
+        <div class="stat-card">
+          <div class="stat-card-top">
+            <div class="stat-label">Time to shortlist</div>
+            <div class="stat-badge badge-green">↓ 76% faster</div>
           </div>
+          <div class="stat-number">7 days</div>
+          <div class="stat-desc">vs. 30-day industry average</div>
+          <div class="stat-bar-wrap"><div class="stat-bar" style="width:76%"></div></div>
         </div>
-        <div class="flex gap-6 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-black text-xl">2</div>
-          <div>
-            <h3 class="font-bold text-xl mb-2">AI screens & interviews automatically</h3>
-            <p class="text-gray-500 leading-relaxed">Applications come in. AI reads every resume, ranks candidates, invites top ones for automated first-round interviews. All without your team lifting a finger.</p>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Manual work saved</div>
+              <div class="stat-badge badge-blue">avg</div>
+            </div>
+            <div class="stat-number">80%</div>
+            <div class="stat-desc">per recruiter per hire</div>
           </div>
-        </div>
-        <div class="flex gap-6 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-black text-xl">3</div>
-          <div>
-            <h3 class="font-bold text-xl mb-2">You meet only the best 5-10 candidates</h3>
-            <p class="text-gray-500 leading-relaxed">Your team sees a ranked shortlist with AI-generated summaries, interview transcripts, and skill scores. Final decision is always yours.</p>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div class="stat-label">Eval accuracy</div>
+              <div class="stat-badge badge-green">AI</div>
+            </div>
+            <div class="stat-number">96%</div>
+            <div class="stat-desc">match with final hires</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- INDUSTRIES -->
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Built for</p>
-      <h2 class="text-4xl font-black mb-12">Industries that hire at volume</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🛒 Retail</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏭 Manufacturing</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🚚 Logistics</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🍽️ Hospitality</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">📞 Call Centers</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏥 Healthcare</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏗️ Construction</span>
-        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏦 Financial Services</span>
+<!-- LOGOS -->
+<section class="s-logos">
+  <div class="container">
+    <p class="logos-label">Trusted by teams across Europe &amp; LatAm</p>
+    <div class="logos-grid">
+      <div class="logo-item">HomeGoods Direct</div>
+      <div class="logo-item">Veloce Logistics</div>
+      <div class="logo-item">CallFirst</div>
+      <div class="logo-item">Primapack</div>
+      <div class="logo-item">NordStaff</div>
+      <div class="logo-item">Helios Hotels</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="s-problem">
+  <div class="container">
+    <p class="section-eyebrow">The problem</p>
+    <h2 class="section-h2">Mass hiring is broken.<br/>It doesn't have to be.</h2>
+    <p class="section-sub">Most teams are drowning in applications while the best candidates are already accepting other offers.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon icon-red">📥</div>
+        <h3>Hundreds of resumes, no time</h3>
+        <p>A single job post generates 200–500 applications. Your team manually reads each one. Most of their day, gone. The best candidates are buried on page 3.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon icon-amber">📞</div>
+        <h3>Screening calls eat weeks</h3>
+        <p>Scheduling and running first-round calls for 50 candidates takes 2–3 weeks before you even get to real interviews. Recruiters spend 60% of time on admin.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon icon-purple">🏃</div>
+        <h3>The best candidates leave</h3>
+        <p>Top talent accepts competing offers while you're still reviewing applications. Slow process costs 2–4× the position's monthly salary in lost productivity.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRICING -->
-  <section id="pricing" class="bg-gray-50 py-24 px-6">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Pricing</p>
-      <h2 class="text-4xl font-black text-center mb-4">Simple, transparent pricing</h2>
-      <p class="text-center text-gray-500 mb-14 text-lg">Start free for 14 days. No credit card required.</p>
-
-      <div class="grid md:grid-cols-2 gap-8">
-
-        <!-- Starter -->
-        <div class="bg-white rounded-3xl border-2 border-gray-200 p-10 card-hover">
-          <h3 class="font-bold text-xl mb-1">Starter</h3>
-          <p class="text-gray-500 text-sm mb-6">For teams starting with AI hiring</p>
-          <div class="text-5xl font-black mb-1">€49<span class="text-2xl font-medium text-gray-400">/mo</span></div>
-          <p class="text-gray-400 text-sm mb-8">per recruiter seat</p>
-          <ul class="space-y-3 mb-10 text-sm">
-            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 1 user seat</li>
-            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 100 candidates/month</li>
-            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 20 AI interviews/month</li>
-            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Resume screening & ranking</li>
-            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Kanban pipeline</li>
-            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Email support</li>
-          </ul>
-          <a href="https://app.filtario.com" class="block w-full text-center border-2 border-indigo-600 text-indigo-600 font-bold py-4 rounded-2xl hover:bg-indigo-50 transition">
-            Start free trial
-          </a>
-        </div>
-
-        <!-- Pro -->
-        <div class="bg-indigo-600 rounded-3xl p-10 text-white relative overflow-hidden card-hover">
-          <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 rounded-full">MOST POPULAR</div>
-          <h3 class="font-bold text-xl mb-1">Pro</h3>
-          <p class="text-indigo-200 text-sm mb-6">For growing teams hiring at scale</p>
-          <div class="text-5xl font-black mb-1">€149<span class="text-2xl font-medium text-indigo-300">/mo</span></div>
-          <p class="text-indigo-300 text-sm mb-8">up to 5 seats included</p>
-          <ul class="space-y-3 mb-10 text-sm">
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Up to 5 user seats</li>
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Unlimited candidates</li>
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Unlimited AI interviews</li>
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Skills testing suite</li>
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Multi-board aggregation</li>
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Advanced analytics</li>
-            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Priority support</li>
-          </ul>
-          <a href="https://app.filtario.com" class="block w-full text-center bg-white text-indigo-600 font-bold py-4 rounded-2xl hover:bg-indigo-50 transition">
-            Start free trial →
-          </a>
-        </div>
-
-      </div>
-
-      <p class="text-center text-gray-500 mt-8 text-sm">
-        Need more than 5 seats or 1,000+ hires/month?
-        <a href="mailto:hello@filtario.com" class="text-indigo-600 font-semibold hover:underline">Contact us for Enterprise pricing</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-20 px-6">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-black text-center mb-12">Common questions</h2>
-      <div class="space-y-6">
-        <div class="border-b border-gray-100 pb-6">
-          <h3 class="font-bold mb-2">Does the AI really conduct full interviews?</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Yes. Candidates receive a link, answer role-specific questions via text or voice, and our AI evaluates their responses. You get a structured report with scores and key quotes.</p>
-        </div>
-        <div class="border-b border-gray-100 pb-6">
-          <h3 class="font-bold mb-2">What job boards do you integrate with?</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Indeed, LinkedIn, Glassdoor, and others via direct import or API. New integrations added regularly. You can also import CSV files from any source.</p>
-        </div>
-        <div class="border-b border-gray-100 pb-6">
-          <h3 class="font-bold mb-2">Is candidate data secure and GDPR compliant?</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Yes. All data is encrypted, stored in EU data centers, and we provide tools to manage consent, data deletion, and candidate rights requests.</p>
-        </div>
-        <div class="border-b border-gray-100 pb-6">
-          <h3 class="font-bold mb-2">How long does setup take?</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Most teams are running their first AI screening within 10 minutes of signing up. No technical skills required — it's a self-serve platform.</p>
-        </div>
+<!-- FEATURES -->
+<section class="s-features" id="features">
+  <div class="container">
+    <p class="section-eyebrow">Features</p>
+    <h2 class="section-h2">Everything you need<br/>to hire at scale</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
         <div>
-          <h3 class="font-bold mb-2">Can I cancel anytime?</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">Yes. No contracts, no cancellation fees. Cancel before your next billing date and you won't be charged.</p>
+          <h3>AI Resume Screening</h3>
+          <p>Upload thousands of CVs. AI ranks every candidate by match quality in minutes — not days. Custom scoring criteria per role, seniority, and department.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div>
+          <h3>Automated AI Interviews</h3>
+          <p>A virtual interviewer conducts first-round interviews 24/7. Candidates answer at their own time — text or voice. You get structured reports with key quotes and scores.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div>
+          <h3>Skills Testing</h3>
+          <p>Verify what candidates can actually do — not just what's on their CV. Pre-built tests for 40+ roles. Results compared against your top-performer benchmarks.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div>
+          <h3>Multi-Board Aggregation</h3>
+          <p>Pull candidates from Indeed, LinkedIn, Glassdoor and local job boards into one pipeline automatically. No more switching tabs or copying spreadsheets.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div>
+          <h3>Kanban Pipeline</h3>
+          <p>Visual board showing every candidate's stage. Your whole team sees the same picture. Assign reviewers, set deadlines, add notes — all in one place.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <div>
+          <h3>Hiring Analytics</h3>
+          <p>Time-to-hire, source quality, funnel conversion, offer acceptance rate — in one dashboard. Know exactly where your pipeline slows and fix it fast.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FINAL CTA -->
-  <section class="gradient-bg py-20 px-6 text-center text-white">
-    <h2 class="text-4xl font-black mb-4">Ready to hire 7× faster?</h2>
-    <p class="text-indigo-200 text-lg mb-8">Join companies already using AI to cut hiring time and cost.</p>
-    <a href="#pricing" class="inline-block bg-white text-indigo-600 font-bold text-lg px-10 py-4 rounded-2xl hover:bg-indigo-50 transition shadow-xl">
-      Start your free 14-day trial →
-    </a>
-    <p class="text-indigo-300 text-sm mt-4">No credit card · Cancel anytime · Setup in 10 min</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-100 py-10 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <div class="w-7 h-7 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-xs">F</span>
+<!-- HOW IT WORKS -->
+<section class="s-how" id="how-it-works">
+  <div class="container">
+    <p class="section-eyebrow" style="text-align:center">How it works</p>
+    <h2 class="section-h2" style="text-align:center;max-width:520px;margin:0 auto 0">From job post to shortlist<br/>in 7 days</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Post your job &amp; set criteria</h3>
+          <p>Define the role, required skills, and what "great" looks like. Takes 10 minutes. Filtario learns your hiring standards and adapts scoring to your company culture.</p>
         </div>
-        <span class="font-bold">Filtario</span>
       </div>
-      <p class="text-sm text-gray-400">© 2026 Filtario. All rights reserved.</p>
-      <div class="flex gap-6 text-sm text-gray-400">
-        <a href="#" class="hover:text-gray-600">Privacy</a>
-        <a href="#" class="hover:text-gray-600">Terms</a>
-        <a href="mailto:hello@filtario.com" class="hover:text-gray-600">Contact</a>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>AI screens &amp; interviews automatically</h3>
+          <p>Applications come in. AI reads every resume, ranks candidates, and invites top ones for automated first-round interviews — all without your team lifting a finger. Around the clock.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>You meet only the best 5–10 candidates</h3>
+          <p>Your team receives a ranked shortlist with AI summaries, interview transcripts, skills scores, and red-flag alerts. The final hiring decision is always yours.</p>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="s-case">
+  <div class="container">
+    <p class="section-eyebrow">Case studies</p>
+    <h2 class="section-h2">Real teams. Real results.</h2>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-tag">🛒 Retail · UK</div>
+        <h3>HomeGoods Direct hired 240 seasonal workers in 18 days</h3>
+        <p>Pre-holiday surge required 240 warehouse and floor staff across 12 locations. Old process: 6–8 weeks, 3 recruiters working overtime. Filtario screened 1,840 applications, ran automated interviews for the top 380, and delivered a ranked shortlist within 72 hours.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">18 days</div>
+            <div class="case-metric-label">total time to hire</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">−83%</div>
+            <div class="case-metric-label">recruiter hours</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">94%</div>
+            <div class="case-metric-label">30-day retention</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">🚚 Logistics · Spain</div>
+        <h3>Veloce Logistics cut hiring cycle from 34 to 6 days</h3>
+        <p>Rapid expansion into three new regions required constant driver and warehouse hiring. A 2-person recruiter team was the bottleneck. Filtario automated CV screening and first-round qualification interviews in Spanish, delivering only pre-vetted candidates for final review.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">6 days</div>
+            <div class="case-metric-label">avg. time-to-hire</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">160h</div>
+            <div class="case-metric-label">saved per month</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">3×</div>
+            <div class="case-metric-label">more hires, same team</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">📞 Call Center · Poland</div>
+        <h3>CallFirst scaled from 80 to 310 agents in one quarter</h3>
+        <p>A new client contract required tripling the team in 90 days. Previous ATS couldn't handle the volume — HR was manually screening 400+ applications per week. Filtario handled the full top-of-funnel: screening, language assessment, and role-fit scoring for every applicant.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">230</div>
+            <div class="case-metric-label">new agents hired</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">90 days</div>
+            <div class="case-metric-label">total timeline</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">€41K</div>
+            <div class="case-metric-label">recruiter cost saved</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tag">🏨 Hospitality · Germany</div>
+        <h3>Helios Hotels filled 60 seasonal roles in 9 days, not 7 weeks</h3>
+        <p>Summer season crunch: 60 front-desk, housekeeping, and kitchen positions across 4 hotels. Language requirements (DE/EN) made screening complex. Filtario's multilingual AI assessed both language proficiency and hospitality experience automatically.</p>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="case-metric-num">9 days</div>
+            <div class="case-metric-label">vs. 7-week usual</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">100%</div>
+            <div class="case-metric-label">positions filled</div>
+          </div>
+          <div class="case-divider"></div>
+          <div class="case-metric">
+            <div class="case-metric-num">2 langs</div>
+            <div class="case-metric-label">auto-assessed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="s-testimonials">
+  <div class="container">
+    <p class="section-eyebrow">What teams say</p>
+    <h2 class="section-h2">From the people using it</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"We went from drowning in 1,800 applications to having a shortlist of 22 qualified candidates in 72 hours. Our recruiters couldn't believe it was real. We haven't gone back to the old way."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#5B76FF">SM</div>
+          <div>
+            <div class="author-name">Sarah Mitchell</div>
+            <div class="author-role">Head of Talent · HomeGoods Direct</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The ROI was immediate. Within the first month, Filtario saved my team 160 hours of screening calls. That's two full-time recruiters' worth of work — eliminated. And hire quality actually went up."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#22C55E">MD</div>
+          <div>
+            <div class="author-name">Marco Delgado</div>
+            <div class="author-role">HR Director · Veloce Logistics</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"We had a contract to scale from 80 to 310 agents in 90 days. Without Filtario that would have been physically impossible. The AI handled everything up to the final interview — perfectly."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#EF4444">JP</div>
+          <div>
+            <div class="author-name">Jennifer Park</div>
+            <div class="author-role">VP People · CallFirst Solutions</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"We run seasonal hiring twice a year — it used to be a nightmare. Now I import applicants from three job boards, hit go, and Filtario does the rest. Nine days from posting to signed contracts."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#F59E0B">KH</div>
+          <div>
+            <div class="author-name">Klaus Hartmann</div>
+            <div class="author-role">Ops Manager · Helios Hotels</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Other tools just sort resumes. Filtario actually interviews people. The AI asks follow-up questions, probes for inconsistencies, evaluates communication skills. It's like having a senior recruiter working 24/7."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#8B5CF6">AL</div>
+          <div>
+            <div class="author-name">Anna Lewandowska</div>
+            <div class="author-role">Recruitment Lead · Primapack</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"We tried three ATS systems before Filtario. The difference is the AI actually understands context — not just keywords. Our quality-of-hire score went from 67 to 89 in one quarter. That's the real measure."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:#06B6D4">TR</div>
+          <div>
+            <div class="author-name">Thomas Riis</div>
+            <div class="author-role">Head of HR · NordStaff</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="s-industries">
+  <div class="container">
+    <p class="section-eyebrow" style="text-align:center">Built for</p>
+    <h2 class="section-h2" style="text-align:center;margin-bottom:0">Industries that hire at volume</h2>
+    <div class="industries-grid">
+      <div class="industry-tile"><div class="industry-emoji">🛒</div><div class="industry-name">Retail</div></div>
+      <div class="industry-tile"><div class="industry-emoji">🏭</div><div class="industry-name">Manufacturing</div></div>
+      <div class="industry-tile"><div class="industry-emoji">🚚</div><div class="industry-name">Logistics</div></div>
+      <div class="industry-tile"><div class="industry-emoji">🍽️</div><div class="industry-name">Hospitality</div></div>
+      <div class="industry-tile"><div class="industry-emoji">📞</div><div class="industry-name">Call Centers</div></div>
+      <div class="industry-tile"><div class="industry-emoji">🏥</div><div class="industry-name">Healthcare</div></div>
+      <div class="industry-tile"><div class="industry-emoji">🏗️</div><div class="industry-name">Construction</div></div>
+      <div class="industry-tile"><div class="industry-emoji">🏦</div><div class="industry-name">Financial Services</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="s-pricing" id="pricing">
+  <div class="container">
+    <p class="section-eyebrow" style="text-align:center">Pricing</p>
+    <h2 class="section-h2" style="text-align:center;max-width:480px;margin:0 auto 12px">Simple, transparent pricing</h2>
+    <p style="text-align:center;font-size:16px;color:var(--secondary)">Start free for 14 days. No credit card required.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-badge badge-starter">Starter</div>
+        <div class="pricing-name">For small teams</div>
+        <div class="pricing-desc">Getting started with AI screening</div>
+        <div class="pricing-price">
+          <div class="price-amount">€49<span style="font-size:22px;font-family:var(--sans);font-weight:400;color:var(--secondary)">/mo</span></div>
+          <div class="price-period">per recruiter seat · billed monthly</div>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check-yes">✓</span> 1 user seat</li>
+          <li><span class="check-yes">✓</span> 100 candidates / month</li>
+          <li><span class="check-yes">✓</span> 20 AI interviews / month</li>
+          <li><span class="check-yes">✓</span> Resume screening &amp; ranking</li>
+          <li><span class="check-yes">✓</span> Kanban pipeline</li>
+          <li><span class="check-yes">✓</span> Indeed &amp; LinkedIn import</li>
+          <li><span class="check-yes">✓</span> Email support</li>
+          <li><span class="check-no">✗</span> Skills testing</li>
+          <li><span class="check-no">✗</span> Advanced analytics</li>
+          <li><span class="check-no">✗</span> Multi-board aggregation</li>
+        </ul>
+        <a href="mailto:hello@filtario.com" class="pricing-cta cta-outline">Start free trial</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge badge-popular">Most popular</div>
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-desc">For growing teams hiring at scale</div>
+        <div class="pricing-price">
+          <div class="price-amount">€149<span style="font-size:22px;font-family:var(--sans);font-weight:400;color:rgba(255,255,255,.5)">/mo</span></div>
+          <div class="price-period">up to 5 seats included</div>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check-yes">✓</span> Up to 5 user seats</li>
+          <li><span class="check-yes">✓</span> Unlimited candidates</li>
+          <li><span class="check-yes">✓</span> Unlimited AI interviews</li>
+          <li><span class="check-yes">✓</span> Skills testing suite (40+ roles)</li>
+          <li><span class="check-yes">✓</span> Multi-board aggregation</li>
+          <li><span class="check-yes">✓</span> Advanced analytics dashboard</li>
+          <li><span class="check-yes">✓</span> Multilingual AI (EN/ES/DE/FR)</li>
+          <li><span class="check-yes">✓</span> Priority support</li>
+          <li><span class="check-yes">✓</span> API access</li>
+          <li><span class="check-yes">✓</span> GDPR compliance tools</li>
+        </ul>
+        <a href="mailto:hello@filtario.com" class="pricing-cta cta-white">Start free trial →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-badge badge-enterprise">Enterprise</div>
+        <div class="pricing-name">For large organisations</div>
+        <div class="pricing-desc">1,000+ hires/month or custom needs</div>
+        <div class="pricing-price">
+          <div class="price-amount" style="font-size:40px">Custom</div>
+          <div class="price-period">annual contract · volume discounts</div>
+        </div>
+        <ul class="pricing-features">
+          <li><span class="check-yes">✓</span> Unlimited seats</li>
+          <li><span class="check-yes">✓</span> Everything in Pro</li>
+          <li><span class="check-yes">✓</span> Dedicated account manager</li>
+          <li><span class="check-yes">✓</span> Custom AI scoring criteria</li>
+          <li><span class="check-yes">✓</span> SSO &amp; advanced permissions</li>
+          <li><span class="check-yes">✓</span> On-premise deployment option</li>
+          <li><span class="check-yes">✓</span> SLA &amp; uptime guarantee</li>
+          <li><span class="check-yes">✓</span> Custom ATS / HRIS integrations</li>
+          <li><span class="check-yes">✓</span> Quarterly business reviews</li>
+          <li><span class="check-yes">✓</span> White-label option</li>
+        </ul>
+        <a href="mailto:hello@filtario.com" class="pricing-cta cta-accent">Contact sales</a>
+      </div>
+
+    </div>
+    <p class="pricing-note">All plans include a 14-day free trial · No credit card required · Cancel anytime</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s-faq" id="faq">
+  <div class="container">
+    <p class="section-eyebrow" style="text-align:center">FAQ</p>
+    <h2 class="section-h2" style="text-align:center">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Does the AI really conduct full interviews? <span>+</span></button>
+        <div class="faq-a" style="display:none">Yes. Candidates receive a link, answer role-specific questions via text or voice, and our AI evaluates responses in real time — asking follow-up questions where needed. You get a structured report with scores, key quotes, and red-flag highlights.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">What job boards do you integrate with? <span>+</span></button>
+        <div class="faq-a" style="display:none">Indeed, LinkedIn, Glassdoor, StepStone, InfoJobs, and others via direct integration or API. You can also import candidate CSV files from any source. New integrations are added monthly.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Is candidate data secure and GDPR compliant? <span>+</span></button>
+        <div class="faq-a" style="display:none">Yes. All data is encrypted in transit and at rest, stored exclusively in EU data centers (Frankfurt). We provide built-in tools for consent management, data deletion requests, and candidate rights compliance under GDPR.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">How long does setup take? <span>+</span></button>
+        <div class="faq-a" style="display:none">Most teams run their first AI screening within 10 minutes of signing up. There's nothing to install — Filtario is fully browser-based. Connect your job boards, set your scoring criteria, and you're ready.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">What languages does the AI interview in? <span>+</span></button>
+        <div class="faq-a" style="display:none">Pro and Enterprise plans support AI interviews in English, Spanish, German, and French. Additional languages are available on Enterprise. The AI automatically detects candidate language preference and adapts.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="var a=this.nextElementSibling;a.style.display=a.style.display==='block'?'none':'block'">Can I cancel anytime? <span>+</span></button>
+        <div class="faq-a" style="display:none">Yes. No contracts, no cancellation fees on monthly plans. Cancel before your next billing date and you won't be charged. Your data is available for export for 30 days after cancellation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="s-cta">
+  <div class="container">
+    <h2>Ready to hire 7× faster?</h2>
+    <p>Join 140+ hiring teams across Europe &amp; Latin America already using Filtario.</p>
+    <a href="mailto:hello@filtario.com" class="cta-btn-white">Book a demo call →</a>
+    <p class="cta-fine">No credit card · Cancel anytime · Setup in 10 minutes</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Filtar<span>io</span></div>
+      <p class="footer-copy">© 2026 Filtario. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:hello@filtario.com">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

@@ -13,7 +13,6 @@
     { "source": "/alternatives/greenhouse", "destination": "/alternatives/greenhouse.html" },
     { "source": "/alternatives/bamboohr", "destination": "/alternatives/bamboohr.html" },
     { "source": "/alternatives/lever", "destination": "/alternatives/lever.html" },
-    { "source": "/alternatives/workday", "destination": "/alternatives/workday.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" }
   ],
