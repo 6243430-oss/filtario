@@ -1,0 +1,29 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/en/index.html" },
+    { "source": "/es", "destination": "/es/index.html" },
+    { "source": "/es/", "destination": "/es/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/", "destination": "/blog/index.html" },
+    { "source": "/blog/reduce-hiring-time", "destination": "/blog/reduce-hiring-time.html" },
+    { "source": "/blog/cost-of-slow-hiring", "destination": "/blog/cost-of-slow-hiring.html" },
+    { "source": "/blog/ai-hiring-software-guide", "destination": "/blog/ai-hiring-software-guide.html" },
+    { "source": "/blog/mass-hiring-retail", "destination": "/blog/mass-hiring-retail.html" },
+    { "source": "/blog/automated-interviews", "destination": "/blog/automated-interviews.html" },
+    { "source": "/alternatives/greenhouse", "destination": "/alternatives/greenhouse.html" },
+    { "source": "/alternatives/bamboohr", "destination": "/alternatives/bamboohr.html" },
+    { "source": "/alternatives/lever", "destination": "/alternatives/lever.html" },
+    { "source": "/alternatives/workday", "destination": "/alternatives/workday.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" }
+      ]
+    }
+  ]
+}

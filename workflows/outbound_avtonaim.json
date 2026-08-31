@@ -1,0 +1,191 @@
+{
+  "name": "Filtario — Outbound Pipeline (EN + ES)",
+  "nodes": [
+    {
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [240, 300],
+      "parameters": {
+        "rule": { "interval": [{ "field": "days", "daysInterval": 1 }] }
+      },
+      "notes": "Runs daily at 8am UTC. Picks up new pending prospects."
+    },
+    {
+      "name": "Get Pending Prospects",
+      "type": "n8n-nodes-base.airtable",
+      "position": [460, 300],
+      "parameters": {
+        "operation": "list",
+        "baseId": "={{ $env.AIRTABLE_BASE_ID }}",
+        "tableId": "Prospects_Filtario",
+        "filterByFormula": "{Status} = 'pending'",
+        "maxRecords": 20
+      },
+      "notes": "Max 20/day to stay within Instantly daily send limits safely."
+    },
+    {
+      "name": "Scrape Company Website",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [680, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [{ "name": "Authorization", "value": "=Bearer {{ $env.FIRECRAWL_API_KEY }}" }]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "url", "value": "={{ $json.fields.website }}" },
+            { "name": "formats", "value": ["extract"] },
+            { "name": "extract", "value": { "prompt": "Summarize what this company does, their size, industry, and any recent news or job postings. 3 sentences max." } }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Detect Language",
+      "type": "n8n-nodes-base.if",
+      "position": [900, 300],
+      "parameters": {
+        "conditions": {
+          "string": [{
+            "value1": "={{ $node['Get Pending Prospects'].json.fields.language }}",
+            "operation": "equal",
+            "value2": "es"
+          }]
+        }
+      },
+      "notes": "Routes to Spanish or English prompt based on 'language' field in Airtable (en/es)."
+    },
+    {
+      "name": "Generate Email EN",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1120, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $env.ANTHROPIC_API_KEY }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "claude-sonnet-4-6" },
+            { "name": "max_tokens", "value": 300 },
+            {
+              "name": "system",
+              "value": "You are a B2B SaaS sales expert writing cold emails for Filtario — an AI hiring automation platform that cuts hiring time from 30 days to 7. Write emails that sound human, direct, and relevant. Max 5 sentences. Never use: synergy, innovative, excited to share, hope this finds you well."
+            },
+            {
+              "name": "messages",
+              "value": [{
+                "role": "user",
+                "content": "=Write a cold email for this prospect:\n\nCompany: {{ $node['Get Pending Prospects'].json.fields.company_name }}\nWebsite summary: {{ $node['Scrape Company Website'].json.extract }}\nRecipient: {{ $node['Get Pending Prospects'].json.fields.first_name }}, {{ $node['Get Pending Prospects'].json.fields.job_title }}\nOpen jobs: {{ $node['Get Pending Prospects'].json.fields.open_jobs }}\nIndustry: {{ $node['Get Pending Prospects'].json.fields.industry }}\nCompany size: {{ $node['Get Pending Prospects'].json.fields.company_size }} employees\nSender: {{ $node['Get Pending Prospects'].json.fields.sender_name }}\n\nFirst sentence: reference something specific about their company (open roles, industry pain, recent growth).\nThen: mention Filtario cuts hiring from 30 days to 7, 80% less manual work.\nEnd with: one CTA for a 20-minute call.\nPlain text only, no subject line."
+              }]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate Email ES",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1120, 400],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-api-key", "value": "={{ $env.ANTHROPIC_API_KEY }}" },
+            { "name": "anthropic-version", "value": "2023-06-01" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "model", "value": "claude-sonnet-4-6" },
+            { "name": "max_tokens", "value": 300 },
+            {
+              "name": "system",
+              "value": "Eres un experto en ventas B2B SaaS escribiendo emails en frío para Filtario — una plataforma de automatización de contratación con IA que reduce el ciclo de contratación de 30 días a 7. Escribe emails que suenen humanos, directos y relevantes. Máximo 5 oraciones. Nunca uses: sinergia, innovador, emocionado de compartir. Escribe en español latinoamericano natural."
+            },
+            {
+              "name": "messages",
+              "value": [{
+                "role": "user",
+                "content": "=Escribe un email en frío para este prospecto:\n\nEmpresa: {{ $node['Get Pending Prospects'].json.fields.company_name }}\nResumen del sitio: {{ $node['Scrape Company Website'].json.extract }}\nDestinatario: {{ $node['Get Pending Prospects'].json.fields.first_name }}, {{ $node['Get Pending Prospects'].json.fields.job_title }}\nVacantes abiertas: {{ $node['Get Pending Prospects'].json.fields.open_jobs }}\nIndustria: {{ $node['Get Pending Prospects'].json.fields.industry }}\nTamaño: {{ $node['Get Pending Prospects'].json.fields.company_size }} empleados\nRemitente: {{ $node['Get Pending Prospects'].json.fields.sender_name }}\nPaís: {{ $node['Get Pending Prospects'].json.fields.country }}\n\nPrimera oración: menciona algo específico de su empresa.\nLuego: Filtario reduce la contratación de 30 días a 7, 80% menos trabajo manual.\nFinaliza con: CTA para llamada de 20 minutos.\nSolo texto plano, sin asunto."
+              }]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Merge Email Output",
+      "type": "n8n-nodes-base.merge",
+      "position": [1340, 300],
+      "parameters": { "mode": "chooseBranch", "chooseBranch": { "mode": "waitForBoth" } }
+    },
+    {
+      "name": "Push to Instantly",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1560, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.instantly.ai/api/v1/lead/add",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "api_key", "value": "={{ $env.INSTANTLY_API_KEY }}" },
+            { "name": "campaign_id", "value": "={{ $node['Get Pending Prospects'].json.fields.language === 'es' ? $env.INSTANTLY_CAMPAIGN_ES : $env.INSTANTLY_CAMPAIGN_EN }}" },
+            { "name": "email", "value": "={{ $node['Get Pending Prospects'].json.fields.email }}" },
+            { "name": "first_name", "value": "={{ $node['Get Pending Prospects'].json.fields.first_name }}" },
+            { "name": "company_name", "value": "={{ $node['Get Pending Prospects'].json.fields.company_name }}" },
+            { "name": "personalization", "value": "={{ $json.content[0].text }}" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Mark Sent in Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "position": [1780, 300],
+      "parameters": {
+        "operation": "update",
+        "baseId": "={{ $env.AIRTABLE_BASE_ID }}",
+        "tableId": "Prospects_Filtario",
+        "id": "={{ $node['Get Pending Prospects'].json.id }}",
+        "fieldsUi": {
+          "fieldValues": [
+            { "fieldId": "Status", "fieldValue": "sent" },
+            { "fieldId": "SentAt", "fieldValue": "={{ $now }}" },
+            { "fieldId": "GeneratedEmail", "fieldValue": "={{ $node['Merge Email Output'].json.content[0].text }}" }
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": { "main": [[{ "node": "Get Pending Prospects", "type": "main", "index": 0 }]] },
+    "Get Pending Prospects": { "main": [[{ "node": "Scrape Company Website", "type": "main", "index": 0 }]] },
+    "Scrape Company Website": { "main": [[{ "node": "Detect Language", "type": "main", "index": 0 }]] },
+    "Detect Language": {
+      "main": [
+        [{ "node": "Generate Email EN", "type": "main", "index": 0 }],
+        [{ "node": "Generate Email ES", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Email EN": { "main": [[{ "node": "Merge Email Output", "type": "main", "index": 0 }]] },
+    "Generate Email ES": { "main": [[{ "node": "Merge Email Output", "type": "main", "index": 1 }]] },
+    "Merge Email Output": { "main": [[{ "node": "Push to Instantly", "type": "main", "index": 0 }]] },
+    "Push to Instantly": { "main": [[{ "node": "Mark Sent in Airtable", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Filtario — Contrata más rápido con IA. De 30 días a 7.</title>
+  <meta name="description" content="Automatización de contratación masiva con IA. Filtrado de CVs, entrevistas automáticas, evaluación de habilidades. Reduce tu ciclo de contratación de 30 días a 7."/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #6366f1, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(99,102,241,0.15); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- NAV -->
+  <nav class="border-b border-gray-100 px-6 py-4 sticky top-0 bg-white/95 backdrop-blur z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-sm">F</span>
+        </div>
+        <span class="text-xl font-bold">Filtario</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#funciones" class="hover:text-gray-900 transition">Funciones</a>
+        <a href="#como-funciona" class="hover:text-gray-900 transition">Cómo funciona</a>
+        <a href="#precios" class="hover:text-gray-900 transition">Precios</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#precios" class="gradient-bg text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">
+          Prueba gratis
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 pt-20 pb-16">
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 text-sm font-semibold px-4 py-2 rounded-full mb-8">
+        <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
+        Automatización de contratación masiva con IA
+      </div>
+      <h1 class="text-6xl font-black leading-tight tracking-tight mb-6">
+        Contrata a escala.<br/>
+        <span class="gradient-text">De 30 días a 7.</span>
+      </h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Filtario analiza miles de currículums, realiza entrevistas con IA y clasifica candidatos automáticamente — para que tu equipo solo se enfoque en los mejores talentos.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a href="#precios" class="gradient-bg text-white font-bold text-lg px-8 py-4 rounded-2xl hover:opacity-90 transition shadow-lg shadow-indigo-200">
+          Prueba gratis — 14 días
+        </a>
+        <a href="#como-funciona" class="text-gray-700 font-semibold text-lg px-8 py-4 rounded-2xl border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition">
+          Ver cómo funciona
+        </a>
+      </div>
+      <p class="text-sm text-gray-400">Sin tarjeta de crédito · Cancela cuando quieras · Configuración en 10 minutos</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-6 mt-20 max-w-3xl mx-auto">
+      <div class="text-center">
+        <p class="text-5xl font-black text-indigo-600 mb-1">80%</p>
+        <p class="text-sm text-gray-500 font-medium">Menos trabajo manual<br/>para tus reclutadores</p>
+      </div>
+      <div class="text-center border-x border-gray-100">
+        <p class="text-5xl font-black text-indigo-600 mb-1">7×</p>
+        <p class="text-sm text-gray-500 font-medium">Más rápido el ciclo<br/>de contratación</p>
+      </div>
+      <div class="text-center">
+        <p class="text-5xl font-black text-indigo-600 mb-1">96%</p>
+        <p class="text-sm text-gray-500 font-medium">Precisión en la<br/>evaluación de candidatos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="bg-gray-50 py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">El problema</p>
+      <h2 class="text-4xl font-black text-center mb-14">La contratación masiva está rota.<br/>No tiene por qué serlo.</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
+          <div class="text-4xl mb-4">📥</div>
+          <h3 class="font-bold text-lg mb-3">Cientos de CVs, sin tiempo</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Una sola oferta genera 200-500 postulaciones. Tu equipo las lee una por una. La mayor parte del día, perdida.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
+          <div class="text-4xl mb-4">📞</div>
+          <h3 class="font-bold text-lg mb-3">Las llamadas de filtrado toman semanas</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Coordinar y realizar llamadas iniciales con 50 candidatos toma 2-3 semanas antes de llegar a las entrevistas reales.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
+          <div class="text-4xl mb-4">🔁</div>
+          <h3 class="font-bold text-lg mb-3">Los mejores candidatos se van</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">El mejor talento acepta otras ofertas mientras tú aún revisas aplicaciones. Los procesos lentos pierden ante competidores más ágiles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="funciones" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Funciones</p>
+      <h2 class="text-4xl font-black text-center mb-16">Todo lo que necesitas para contratar a escala</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">📄</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Filtrado de CVs con IA</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Sube miles de currículums. La IA clasifica cada candidato por compatibilidad en minutos. Criterios personalizados por puesto.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">🤖</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Entrevistas automatizadas con IA</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Un entrevistador virtual realiza las primeras entrevistas 24/7. Los candidatos responden a su ritmo. Tú recibes informes estructurados.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">🎯</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Evaluación de habilidades</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Verifica lo que los candidatos realmente saben hacer — no solo lo que dice su CV. Pruebas personalizables para cualquier rol.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">🔗</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Hub centralizado de postulaciones</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Agrega candidatos desde LinkedIn, Computrabajo, OCC y otros portales en un solo pipeline. Sin cambiar de pestaña.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">📊</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Pipeline Kanban de contratación</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Tablero visual con la etapa de cada candidato. Todo el equipo ve el mismo panorama. Nada se pierde.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5 p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/30 transition card-hover">
+          <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center flex-shrink-0 text-white text-xl">📈</div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Analítica de reclutamiento</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Tiempo de contratación, calidad por fuente, conversión del funnel — todo en un dashboard. Identifica dónde se frena tu proceso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="como-funciona" class="bg-gray-50 py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Cómo funciona</p>
+      <h2 class="text-4xl font-black text-center mb-16">De la oferta al candidato ideal en 7 días</h2>
+      <div class="space-y-6">
+        <div class="flex gap-6 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-black text-xl">1</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">Publica tu vacante y define criterios</h3>
+            <p class="text-gray-500 leading-relaxed">Define el puesto, habilidades requeridas y qué significa "excelente". Toma 10 minutos. Filtario aprende tus estándares de contratación.</p>
+          </div>
+        </div>
+        <div class="flex gap-6 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-black text-xl">2</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">La IA filtra y entrevista automáticamente</h3>
+            <p class="text-gray-500 leading-relaxed">Llegan postulaciones. La IA lee cada CV, clasifica candidatos e invita a los mejores a una entrevista inicial automatizada. Sin que tu equipo haga nada.</p>
+          </div>
+        </div>
+        <div class="flex gap-6 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+          <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white font-black text-xl">3</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">Solo conoces a los 5-10 mejores candidatos</h3>
+            <p class="text-gray-500 leading-relaxed">Tu equipo recibe un ranking con resúmenes de IA, transcripciones de entrevistas y puntajes de habilidades. La decisión final siempre es tuya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Diseñado para</p>
+      <h2 class="text-4xl font-black mb-12">Industrias que contratan en volumen</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🛒 Retail</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏭 Manufactura</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🚚 Logística</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🍽️ Hospitalidad</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">📞 Call Centers</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏥 Salud</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏗️ Construcción</span>
+        <span class="bg-gray-50 border border-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full text-sm">🏦 Servicios Financieros</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="precios" class="bg-gray-50 py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-center text-sm font-bold text-indigo-600 uppercase tracking-widest mb-4">Precios</p>
+      <h2 class="text-4xl font-black text-center mb-4">Precios simples y transparentes</h2>
+      <p class="text-center text-gray-500 mb-14 text-lg">14 días gratis. Sin tarjeta de crédito.</p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-white rounded-3xl border-2 border-gray-200 p-10 card-hover">
+          <h3 class="font-bold text-xl mb-1">Starter</h3>
+          <p class="text-gray-500 text-sm mb-6">Para equipos que comienzan con IA en reclutamiento</p>
+          <div class="text-5xl font-black mb-1">€29<span class="text-2xl font-medium text-gray-400">/mes</span></div>
+          <p class="text-gray-400 text-sm mb-8">por usuario</p>
+          <ul class="space-y-3 mb-10 text-sm">
+            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 1 usuario</li>
+            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 100 candidatos/mes</li>
+            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> 20 entrevistas IA/mes</li>
+            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Filtrado y ranking de CVs</li>
+            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Pipeline Kanban</li>
+            <li class="flex items-center gap-3"><span class="text-green-500 font-bold">✓</span> Soporte por email</li>
+          </ul>
+          <a href="https://app.filtario.com" class="block w-full text-center border-2 border-indigo-600 text-indigo-600 font-bold py-4 rounded-2xl hover:bg-indigo-50 transition">
+            Comenzar gratis
+          </a>
+        </div>
+
+        <div class="bg-indigo-600 rounded-3xl p-10 text-white relative overflow-hidden card-hover">
+          <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-black px-3 py-1 rounded-full">MÁS POPULAR</div>
+          <h3 class="font-bold text-xl mb-1">Pro</h3>
+          <p class="text-indigo-200 text-sm mb-6">Para equipos en crecimiento que contratan a escala</p>
+          <div class="text-5xl font-black mb-1">€79<span class="text-2xl font-medium text-indigo-300">/mes</span></div>
+          <p class="text-indigo-300 text-sm mb-8">hasta 5 usuarios incluidos</p>
+          <ul class="space-y-3 mb-10 text-sm">
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Hasta 5 usuarios</li>
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Candidatos ilimitados</li>
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Entrevistas IA ilimitadas</li>
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Evaluación de habilidades</li>
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Integración multi-portal</li>
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Analítica avanzada</li>
+            <li class="flex items-center gap-3"><span class="text-yellow-400 font-bold">✓</span> Soporte prioritario</li>
+          </ul>
+          <a href="https://app.filtario.com" class="block w-full text-center bg-white text-indigo-600 font-bold py-4 rounded-2xl hover:bg-indigo-50 transition">
+            Comenzar gratis →
+          </a>
+        </div>
+
+      </div>
+      <p class="text-center text-gray-500 mt-8 text-sm">
+        ¿Más de 5 usuarios o 1,000+ contrataciones al mes?
+        <a href="mailto:hola@filtario.com" class="text-indigo-600 font-semibold hover:underline">Contáctanos para Enterprise</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="gradient-bg py-20 px-6 text-center text-white">
+    <h2 class="text-4xl font-black mb-4">¿Listo para contratar 7× más rápido?</h2>
+    <p class="text-indigo-200 text-lg mb-8">Únete a las empresas que ya usan IA para reducir tiempo y costo de contratación.</p>
+    <a href="#precios" class="inline-block bg-white text-indigo-600 font-bold text-lg px-10 py-4 rounded-2xl hover:bg-indigo-50 transition shadow-xl">
+      Comienza tu prueba gratis de 14 días →
+    </a>
+    <p class="text-indigo-300 text-sm mt-4">Sin tarjeta de crédito · Cancela cuando quieras · 10 min de configuración</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-100 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 gradient-bg rounded-lg flex items-center justify-center">
+          <span class="text-white font-bold text-xs">F</span>
+        </div>
+        <span class="font-bold">Filtario</span>
+      </div>
+      <p class="text-sm text-gray-400">© 2026 Filtario. Todos los derechos reservados.</p>
+      <div class="flex gap-6 text-sm text-gray-400">
+        <a href="#" class="hover:text-gray-600">Privacidad</a>
+        <a href="#" class="hover:text-gray-600">Términos</a>
+        <a href="mailto:hola@filtario.com" class="hover:text-gray-600">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
