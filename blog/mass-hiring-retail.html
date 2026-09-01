@@ -6,48 +6,78 @@
   <title>Mass Hiring in Retail: Fill 50 Roles Without Burning Out HR | Filtario</title>
   <meta name="description" content="Retail companies face the toughest hiring challenge: high volume, high turnover, tight deadlines. Here's the system that works."/>
   <meta name="keywords" content="retail hiring, mass hiring retail, bulk recruitment, retail HR, seasonal hiring, high volume recruiting"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .prose p { margin-bottom: 1.25rem; color: #4b5563; line-height: 1.8; }
-    .prose h2 { font-size: 1.5rem; font-weight: 800; margin: 2rem 0 1rem; color: #111827; }
-    .prose h3 { font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #111827; }
-    .prose ul { margin: 1rem 0 1.25rem 1.5rem; }
-    .prose ul li { margin-bottom: 0.5rem; color: #4b5563; list-style: disc; }
-    .prose strong { color: #111827; font-weight: 700; }
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .lang-switch{display:flex;background:#fff;border:1px solid #e8e9f0;border-radius:20px;padding:3px;gap:2px}
+    .lang-switch a{padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text);transition:all .15s}
+    .lang-switch a.active,.lang-switch a:hover{background:var(--navy);color:#fff}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none;transition:opacity .15s}
+    .btn-demo:hover{opacity:.88}
+    article{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+    .back{font-size:.875rem;color:var(--accent);text-decoration:none;font-weight:600;display:inline-block;margin-bottom:2rem}
+    .back:hover{text-decoration:underline}
+    .post-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block}
+    h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:var(--navy)}
+    .post-meta{font-size:.85rem;color:var(--text);opacity:.5;margin-bottom:3rem}
+    .prose p{margin-bottom:1.35rem;color:var(--text);line-height:1.85;font-size:.985rem}
+    .prose h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--navy)}
+    .prose h3{font-size:1.05rem;font-weight:700;margin:1.75rem 0 .75rem;color:var(--navy)}
+    .prose ul{margin:1rem 0 1.35rem 1.5rem}
+    .prose ul li{margin-bottom:.6rem;color:var(--text);list-style:disc;line-height:1.7;font-size:.985rem}
+    .prose strong{color:var(--navy);font-weight:700}
+    .cta-box{background:var(--lavender);border:1px solid var(--border);border-radius:20px;padding:2.5rem;text-align:center;margin-top:4rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:.75rem}
+    .cta-box p{color:var(--text);opacity:.7;margin-bottom:1.75rem;line-height:1.6}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-copy{font-size:.8rem;color:var(--text);opacity:.45}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-
-  <nav class="border-b border-gray-100 px-6 py-4">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">F</span>
-        </div>
-        <span class="text-xl font-bold">Filtario</span>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
       </a>
-      <a href="/#pricing" class="gradient-bg text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">Start free trial</a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/" class="active">EN</a>
+          <a href="/es">ES</a>
+        </div>
+        <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo</a>
+      </div>
     </div>
   </nav>
 
-  <article class="max-w-3xl mx-auto px-6 py-16">
-    <a href="/blog" class="text-sm text-indigo-600 font-semibold hover:underline">← Blog</a>
-    <div class="mt-6 mb-4">
-      <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Industry</span>
-    </div>
-    <h1 class="text-4xl font-black leading-tight mb-4">Mass Hiring in Retail: How to Fill 50 Roles Without Burning Out Your HR Team</h1>
-    <p class="text-gray-400 text-sm mb-10">7 min read · Updated June 2026</p>
+  <article>
+    <a href="/blog" class="back">← Blog</a>
+    <span class="post-tag">Industry</span>
+    <h1>Mass Hiring in Retail: How to Fill 50 Roles Without Burning Out Your HR Team</h1>
+    <p class="post-meta">7 min read · Updated June 2026</p>
 
     <div class="prose">
       <p>Retail HR is one of the hardest jobs in the industry. High turnover (average 60% annually in the US), seasonal spikes, multiple locations, and roles that need to be filled quickly before sales season starts or customer service suffers.</p>
       <p>Most retail HR teams are trying to solve a 2026 volume problem with a 2005 process. Here's what actually works at scale.</p>
 
       <h2>The Retail Hiring Problem in Numbers</h2>
-      <p>A mid-sized retail chain with 500 employees at 60% annual turnover needs to hire 300 people per year. That's 25 people per month, every month, just to stay flat. Add seasonal spikes (holiday season, summer) and growth targets, and you're often looking at 40-60 hires in a single month.</p>
-      <p>With a standard hiring process taking 3-4 weeks per role, and a recruiter able to actively manage 15-20 requisitions simultaneously, you need at least 2-3 recruiters just to keep pace. And they spend most of their time on tasks that don't require a human: reading CVs, sending emails, scheduling calls.</p>
+      <p>A mid-sized retail chain with 500 employees at 60% annual turnover needs to hire 300 people per year. That's 25 people per month, every month, just to stay flat. Add seasonal spikes (holiday season, summer) and growth targets, and you're often looking at 40–60 hires in a single month.</p>
+      <p>With a standard hiring process taking 3–4 weeks per role, and a recruiter able to actively manage 15–20 requisitions simultaneously, you need at least 2–3 recruiters just to keep pace. And they spend most of their time on tasks that don't require a human: reading CVs, sending emails, scheduling calls.</p>
 
       <h2>The Three Retail-Specific Challenges</h2>
 
@@ -69,40 +99,46 @@
       <p>Define what a strong retail candidate looks like for your company — reliability signals, availability, relevant experience, communication. AI screens every application against these criteria and produces a ranked shortlist. For a role that gets 300 applicants, your recruiter reviews the top 30, not all 300.</p>
 
       <h3>Step 3: Automated first-round interviews run 24/7</h3>
-      <p>Retail candidates often work shifts or have other jobs. Scheduling phone screens is a coordination nightmare. AI interviews available 24/7 — candidates complete them on their phone whenever convenient. Completion rates for retail roles run 65-80% when the process is mobile-friendly and takes under 10 minutes.</p>
+      <p>Retail candidates often work shifts or have other jobs. Scheduling phone screens is a coordination nightmare. AI interviews available 24/7 — candidates complete them on their phone whenever convenient. Completion rates for retail roles run 65–80% when the process is mobile-friendly and takes under 10 minutes.</p>
 
       <h3>Step 4: Managers see a ready-to-hire shortlist</h3>
-      <p>Each location manager receives 3-5 candidates per role, ranked and summarized. They make one or two in-person or video calls, make the decision, send the offer. Total manager time per hire: 1-2 hours instead of 8-12.</p>
+      <p>Each location manager receives 3–5 candidates per role, ranked and summarized. They make one or two in-person or video calls, make the decision, send the offer. Total manager time per hire: 1–2 hours instead of 8–12.</p>
 
       <h2>What This Looks Like in Practice</h2>
       <p>A retail chain filling 15 roles across 5 locations in one month:</p>
       <ul>
         <li>Day 1: All 15 roles posted simultaneously across all boards</li>
-        <li>Days 1-3: ~1,500 applications arrive, AI screens in real time</li>
-        <li>Days 2-5: Top 150 candidates complete AI first-round interviews</li>
-        <li>Day 5: Each location manager receives 3-5 ranked candidates per role</li>
-        <li>Days 6-8: Final interviews and offers</li>
+        <li>Days 1–3: ~1,500 applications arrive, AI screens in real time</li>
+        <li>Days 2–5: Top 150 candidates complete AI first-round interviews</li>
+        <li>Day 5: Each location manager receives 3–5 ranked candidates per role</li>
+        <li>Days 6–8: Final interviews and offers</li>
         <li>Day 8: All 15 roles filled</li>
       </ul>
-      <p>Total HR team time: approximately 20 hours across 15 hires. Without automation: 120-180 hours.</p>
+      <p>Total HR team time: approximately 20 hours across 15 hires. Without automation: 120–180 hours.</p>
 
       <h2>The Seasonal Surge Problem</h2>
-      <p>Holiday hiring — when retail chains need 2-3× their normal headcount in 6-8 weeks — is where most traditional hiring processes collapse. An AI-automated system handles 5× the volume without 5× the headcount or 5× the time. The pipeline just processes more, faster.</p>
+      <p>Holiday hiring — when retail chains need 2–3× their normal headcount in 6–8 weeks — is where most traditional hiring processes collapse. An AI-automated system handles 5× the volume without 5× the headcount or 5× the time. The pipeline just processes more, faster.</p>
     </div>
 
-    <div class="mt-16 bg-indigo-50 rounded-2xl p-8 text-center">
-      <h3 class="text-2xl font-black mb-2">Built for retail hiring at scale</h3>
-      <p class="text-gray-500 mb-6">Filtario handles the volume so your team handles the decisions. Free for 14 days.</p>
-      <a href="/#pricing" class="inline-block gradient-bg text-white font-bold px-8 py-4 rounded-2xl hover:opacity-90 transition">Start free trial →</a>
+    <div class="cta-box">
+      <h3>Built for retail hiring at scale</h3>
+      <p>Filtario handles the volume so your team handles the decisions. Book a 20-minute demo.</p>
+      <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo →</a>
     </div>
   </article>
 
-  <footer class="border-t border-gray-100 py-8 px-6">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <span class="font-bold">Filtario</span>
-      <p class="text-sm text-gray-400">© 2026 Filtario. All rights reserved.</p>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Filtario</span>
+      <div class="footer-links">
+        <a href="/blog">Blog</a>
+        <a href="/alternatives/greenhouse">vs Greenhouse</a>
+        <a href="/alternatives/bamboohr">vs BambooHR</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <span class="footer-copy">© 2026 Filtario. All rights reserved.</span>
     </div>
   </footer>
-
 </body>
 </html>

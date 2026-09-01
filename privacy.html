@@ -4,31 +4,47 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy | Filtario</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .prose h2 { font-size: 1.25rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #111827; }
-    .prose p { color: #4b5563; line-height: 1.8; margin-bottom: 1rem; }
-    .prose ul { margin: 0.75rem 0 1rem 1.5rem; }
-    .prose ul li { color: #4b5563; list-style: disc; margin-bottom: 0.4rem; }
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none}
+    main{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+    h1{font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:900;margin-bottom:.5rem;color:var(--navy)}
+    .meta{font-size:.85rem;color:var(--text);opacity:.5;margin-bottom:3rem}
+    h2{font-size:1.1rem;font-weight:700;margin:2.25rem 0 .75rem;color:var(--navy)}
+    p{color:var(--text);line-height:1.85;margin-bottom:1rem;font-size:.96rem}
+    ul{margin:.75rem 0 1rem 1.5rem}
+    ul li{color:var(--text);list-style:disc;margin-bottom:.4rem;line-height:1.7;font-size:.96rem}
+    a{color:var(--accent)}
+    footer{border-top:1px solid var(--border);padding:2rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6}
+    .footer-links a:hover{opacity:1}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-  <nav class="border-b border-gray-100 px-6 py-4">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">F</span>
-        </div>
-        <span class="text-xl font-bold">Filtario</span>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
       </a>
+      <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo</a>
     </div>
   </nav>
-  <main class="max-w-3xl mx-auto px-6 py-16 prose">
-    <h1 class="text-3xl font-black mb-2">Privacy Policy</h1>
-    <p class="text-gray-400 text-sm mb-10">Last updated: June 2026</p>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: June 2026</p>
 
     <h2>1. Who We Are</h2>
     <p>Filtario ("we", "us", "our") is an AI-powered hiring automation platform operated by QBSoft. We are committed to protecting the personal data of our users, their candidates, and visitors to our website at filtario.com.</p>
@@ -55,7 +71,7 @@
     <p>Filtario acts as a data processor for candidate information. Our customers (employers) are the data controllers. We process candidate data solely on the instructions of the employer and do not use it for any other purpose. Candidates have the right to request access, correction, or deletion of their data by contacting the employer who collected it.</p>
 
     <h2>5. GDPR Compliance</h2>
-    <p>For users in the European Economic Area, we comply with the General Data Protection Regulation (GDPR). Legal bases for processing include: contract performance, legitimate interests, and consent where required. Data is stored on servers located in the European Union. You have the right to access, rectify, erase, restrict, port, and object to processing of your personal data. To exercise these rights, contact us at privacy@filtario.com.</p>
+    <p>For users in the European Economic Area, we comply with the General Data Protection Regulation (GDPR). Legal bases for processing include: contract performance, legitimate interests, and consent where required. Data is stored on servers located in the European Union. You have the right to access, rectify, erase, restrict, port, and object to processing of your personal data. To exercise these rights, contact us at <a href="mailto:privacy@filtario.com">privacy@filtario.com</a>.</p>
 
     <h2>6. Data Retention</h2>
     <p>We retain account data for the duration of your subscription plus 90 days. Candidate data is retained as configured by the employer (controller). You may request deletion at any time.</p>
@@ -70,13 +86,16 @@
     <p>We use industry-standard encryption (TLS in transit, AES-256 at rest), access controls, and regular security reviews to protect your data.</p>
 
     <h2>10. Contact</h2>
-    <p>For privacy questions or to exercise your rights: <a href="mailto:privacy@filtario.com" class="text-indigo-600 hover:underline">privacy@filtario.com</a></p>
+    <p>For privacy questions or to exercise your rights: <a href="mailto:privacy@filtario.com">privacy@filtario.com</a></p>
   </main>
-  <footer class="border-t border-gray-100 py-8 px-6">
-    <div class="max-w-3xl mx-auto flex gap-6 text-sm text-gray-400">
-      <a href="/privacy" class="hover:text-gray-600">Privacy</a>
-      <a href="/terms" class="hover:text-gray-600">Terms</a>
-      <a href="/" class="hover:text-gray-600">Home</a>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links" style="display:flex;gap:1.5rem">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
     </div>
   </footer>
 </body>

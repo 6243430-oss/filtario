@@ -6,78 +6,124 @@
   <title>Automated AI Interviews: Do Candidates Actually Accept Them? | Filtario</title>
   <meta name="description" content="We analyzed 10,000+ AI interview sessions. Here's what the data says about completion rates, candidate experience, and quality of hire."/>
   <meta name="keywords" content="AI interviews, automated interviews, virtual interview software, AI screening interviews, candidate experience AI"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .prose p { margin-bottom: 1.25rem; color: #4b5563; line-height: 1.8; }
-    .prose h2 { font-size: 1.5rem; font-weight: 800; margin: 2rem 0 1rem; color: #111827; }
-    .prose h3 { font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #111827; }
-    .prose ul { margin: 1rem 0 1.25rem 1.5rem; }
-    .prose ul li { margin-bottom: 0.5rem; color: #4b5563; list-style: disc; }
-    .prose strong { color: #111827; font-weight: 700; }
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .lang-switch{display:flex;background:#fff;border:1px solid #e8e9f0;border-radius:20px;padding:3px;gap:2px}
+    .lang-switch a{padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text);transition:all .15s}
+    .lang-switch a.active,.lang-switch a:hover{background:var(--navy);color:#fff}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none;transition:opacity .15s}
+    .btn-demo:hover{opacity:.88}
+    article{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+    .back{font-size:.875rem;color:var(--accent);text-decoration:none;font-weight:600;display:inline-block;margin-bottom:2rem}
+    .back:hover{text-decoration:underline}
+    .post-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block}
+    h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:var(--navy)}
+    .post-meta{font-size:.85rem;color:var(--text);opacity:.5;margin-bottom:3rem}
+    .prose p{margin-bottom:1.35rem;color:var(--text);line-height:1.85;font-size:.985rem}
+    .prose h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--navy)}
+    .prose h3{font-size:1.05rem;font-weight:700;margin:1.75rem 0 .75rem;color:var(--navy)}
+    .prose ul{margin:1rem 0 1.35rem 1.5rem}
+    .prose ul li{margin-bottom:.6rem;color:var(--text);list-style:disc;line-height:1.7;font-size:.985rem}
+    .prose strong{color:var(--navy);font-weight:700}
+    .prose em{font-style:italic}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0 2rem;background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.5rem}
+    .stat{text-align:center}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent);display:block}
+    .stat-label{font-size:.8rem;color:var(--text);opacity:.7;margin-top:.25rem}
+    .cta-box{background:var(--lavender);border:1px solid var(--border);border-radius:20px;padding:2.5rem;text-align:center;margin-top:4rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:.75rem}
+    .cta-box p{color:var(--text);opacity:.7;margin-bottom:1.75rem;line-height:1.6}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-copy{font-size:.8rem;color:var(--text);opacity:.45}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-
-  <nav class="border-b border-gray-100 px-6 py-4">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">F</span>
-        </div>
-        <span class="text-xl font-bold">Filtario</span>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
       </a>
-      <a href="/#pricing" class="gradient-bg text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">Start free trial</a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/" class="active">EN</a>
+          <a href="/es">ES</a>
+        </div>
+        <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo</a>
+      </div>
     </div>
   </nav>
 
-  <article class="max-w-3xl mx-auto px-6 py-16">
-    <a href="/blog" class="text-sm text-indigo-600 font-semibold hover:underline">← Blog</a>
-    <div class="mt-6 mb-4">
-      <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Technology</span>
-    </div>
-    <h1 class="text-4xl font-black leading-tight mb-4">Automated AI Interviews: Do Candidates Actually Accept Them?</h1>
-    <p class="text-gray-400 text-sm mb-10">6 min read · Updated June 2026</p>
+  <article>
+    <a href="/blog" class="back">← Blog</a>
+    <span class="post-tag">Technology</span>
+    <h1>Automated AI Interviews: Do Candidates Actually Accept Them?</h1>
+    <p class="post-meta">6 min read · Updated June 2026</p>
 
     <div class="prose">
       <p>The most common objection to AI interviews isn't from HR teams — it's about candidates. "Will people actually complete an AI interview? Won't they just abandon it and go apply somewhere else?"</p>
       <p>It's a fair question. Here's what the data actually shows.</p>
 
       <h2>Completion Rates: Better Than Expected</h2>
-      <p>Across mass-hiring roles (retail, logistics, hospitality, call centers), AI interview completion rates typically run between 65% and 82%. For comparison, the industry average for traditional phone screen scheduling — accounting for no-shows, rescheduling, and candidates who go dark before the call — is around 55-65%.</p>
+      <p>Across mass-hiring roles (retail, logistics, hospitality, call centers), AI interview completion rates typically run between 65% and 82%. For comparison, the industry average for traditional phone screen scheduling — accounting for no-shows, rescheduling, and candidates who go dark before the call — is around 55–65%.</p>
       <p>In other words, AI interviews often have <em>higher</em> effective completion rates than phone screens, because candidates can do them at their own convenience rather than waiting for a scheduled time that may conflict with their current job.</p>
 
       <h2>What Affects Completion Rate</h2>
 
       <h3>Length</h3>
-      <p>The single biggest factor. Interviews under 10 minutes complete at 78%+. Interviews over 20 minutes drop to 50-55%. For most frontline roles, 5-8 questions taking 8-12 minutes hits the sweet spot.</p>
+      <p>The single biggest factor. Interviews under 10 minutes complete at 78%+. Interviews over 20 minutes drop to 50–55%. For most frontline roles, 5–8 questions taking 8–12 minutes hits the sweet spot.</p>
 
       <h3>Mobile Friendliness</h3>
-      <p>Over 70% of candidates for frontline roles apply and complete interviews on mobile. If the interview isn't seamless on a phone, completion rates drop 15-20 percentage points.</p>
+      <p>Over 70% of candidates for frontline roles apply and complete interviews on mobile. If the interview isn't seamless on a phone, completion rates drop 15–20 percentage points.</p>
 
       <h3>Framing</h3>
       <p>How you introduce the AI interview matters. "Complete a quick 10-minute interview to be considered for the role" converts much better than "You've been selected to proceed to our automated screening stage." The first feels like opportunity; the second feels like a filter.</p>
 
-      <h3>Response format</h3>
+      <h3>Response Format</h3>
       <p>Text-based responses outperform video for most roles. Many candidates are uncomfortable on camera or don't have a suitable environment. For roles where communication style is critical (call center, sales), video can be valuable — but offer both options when possible.</p>
 
       <h2>Candidate Experience: What They Actually Think</h2>
       <p>Post-interview surveys across 10,000+ sessions show consistently that:</p>
-      <ul>
-        <li><strong>74%</strong> say completing an AI interview was "easy" or "very easy"</li>
-        <li><strong>68%</strong> say they preferred it to scheduling a phone screen</li>
-        <li><strong>81%</strong> say they would complete an AI interview again for a future application</li>
-      </ul>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">74%</span>
+          <span class="stat-label">say AI interview was "easy" or "very easy"</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">68%</span>
+          <span class="stat-label">preferred it to scheduling a phone screen</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">81%</span>
+          <span class="stat-label">would complete an AI interview again</span>
+        </div>
+      </div>
+
       <p>The generational split is notable: candidates under 35 accept AI interviews without friction. Candidates over 45 show more hesitation initially but similar completion rates once they start. The format just needs to be clean and clearly explained.</p>
 
       <h2>Quality of Hire: Does It Actually Work?</h2>
       <p>This is the question that matters most. Faster screening means nothing if you end up hiring the wrong people.</p>
       <p>The evidence here is strong. Companies tracking quality of hire metrics before and after implementing AI interviews consistently report:</p>
       <ul>
-        <li>30-day retention rates 8-12% higher for AI-screened hires vs. manually screened</li>
-        <li>Manager satisfaction scores 15-20% higher for candidates who scored well on AI interviews</li>
+        <li>30-day retention rates 8–12% higher for AI-screened hires vs. manually screened</li>
+        <li>Manager satisfaction scores 15–20% higher for candidates who scored well on AI interviews</li>
         <li>Performance reviews at 6 months correlate significantly with AI interview scores for structured roles</li>
       </ul>
       <p>The reason is consistency. A human interviewer conducting their 15th phone screen of the week is tired and inconsistent. An AI evaluates candidate 1 and candidate 500 with identical rigor.</p>
@@ -92,19 +138,25 @@
       <p>Used for what they're designed for — first-round screening at volume — AI interviews consistently outperform the alternative on every metric that matters: speed, consistency, completion rate, and quality of hire.</p>
     </div>
 
-    <div class="mt-16 bg-indigo-50 rounded-2xl p-8 text-center">
-      <h3 class="text-2xl font-black mb-2">See AI interviews in action</h3>
-      <p class="text-gray-500 mb-6">Filtario conducts first-round interviews automatically, 24/7. Free for 14 days.</p>
-      <a href="/#pricing" class="inline-block gradient-bg text-white font-bold px-8 py-4 rounded-2xl hover:opacity-90 transition">Start free trial →</a>
+    <div class="cta-box">
+      <h3>See AI interviews in action</h3>
+      <p>Filtario conducts first-round interviews automatically, 24/7. Book a 20-minute demo.</p>
+      <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo →</a>
     </div>
   </article>
 
-  <footer class="border-t border-gray-100 py-8 px-6">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <span class="font-bold">Filtario</span>
-      <p class="text-sm text-gray-400">© 2026 Filtario. All rights reserved.</p>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Filtario</span>
+      <div class="footer-links">
+        <a href="/blog">Blog</a>
+        <a href="/alternatives/greenhouse">vs Greenhouse</a>
+        <a href="/alternatives/bamboohr">vs BambooHR</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <span class="footer-copy">© 2026 Filtario. All rights reserved.</span>
     </div>
   </footer>
-
 </body>
 </html>

@@ -6,40 +6,71 @@
   <title>The Real Cost of a Slow Hire: $1,500/Week You're Not Counting | Filtario</title>
   <meta name="description" content="Every open role costs your company money beyond the salary. Here's how to calculate the true cost and make the business case for faster hiring."/>
   <meta name="keywords" content="cost of hiring, slow hiring cost, time to hire ROI, recruitment cost, cost per hire"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .prose p { margin-bottom: 1.25rem; color: #4b5563; line-height: 1.8; }
-    .prose h2 { font-size: 1.5rem; font-weight: 800; margin: 2rem 0 1rem; color: #111827; }
-    .prose h3 { font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #111827; }
-    .prose ul { margin: 1rem 0 1.25rem 1.5rem; }
-    .prose ul li { margin-bottom: 0.5rem; color: #4b5563; list-style: disc; }
-    .prose strong { color: #111827; font-weight: 700; }
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .lang-switch{display:flex;background:#fff;border:1px solid #e8e9f0;border-radius:20px;padding:3px;gap:2px}
+    .lang-switch a{padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text);transition:all .15s}
+    .lang-switch a.active,.lang-switch a:hover{background:var(--navy);color:#fff}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none;transition:opacity .15s}
+    .btn-demo:hover{opacity:.88}
+    article{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+    .back{font-size:.875rem;color:var(--accent);text-decoration:none;font-weight:600;display:inline-block;margin-bottom:2rem}
+    .back:hover{text-decoration:underline}
+    .post-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block}
+    h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:var(--navy)}
+    .post-meta{font-size:.85rem;color:var(--text);opacity:.5;margin-bottom:3rem}
+    .prose p{margin-bottom:1.35rem;color:var(--text);line-height:1.85;font-size:.985rem}
+    .prose h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--navy)}
+    .prose h3{font-size:1.05rem;font-weight:700;margin:1.75rem 0 .75rem;color:var(--navy)}
+    .prose ul{margin:1rem 0 1.35rem 1.5rem}
+    .prose ul li{margin-bottom:.6rem;color:var(--text);list-style:disc;line-height:1.7;font-size:.985rem}
+    .prose strong{color:var(--navy);font-weight:700}
+    .prose em{font-style:italic}
+    .cta-box{background:var(--lavender);border:1px solid var(--border);border-radius:20px;padding:2.5rem;text-align:center;margin-top:4rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:.75rem}
+    .cta-box p{color:var(--text);opacity:.7;margin-bottom:1.75rem;line-height:1.6}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-copy{font-size:.8rem;color:var(--text);opacity:.45}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-
-  <nav class="border-b border-gray-100 px-6 py-4">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">F</span>
-        </div>
-        <span class="text-xl font-bold">Filtario</span>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
       </a>
-      <a href="/#pricing" class="gradient-bg text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">Start free trial</a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/" class="active">EN</a>
+          <a href="/es">ES</a>
+        </div>
+        <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo</a>
+      </div>
     </div>
   </nav>
 
-  <article class="max-w-3xl mx-auto px-6 py-16">
-    <a href="/blog" class="text-sm text-indigo-600 font-semibold hover:underline">← Blog</a>
-    <div class="mt-6 mb-4">
-      <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">ROI</span>
-    </div>
-    <h1 class="text-4xl font-black leading-tight mb-4">The Real Cost of a Slow Hire: $1,500/Week You're Probably Not Counting</h1>
-    <p class="text-gray-400 text-sm mb-10">5 min read · Updated June 2026</p>
+  <article>
+    <a href="/blog" class="back">← Blog</a>
+    <span class="post-tag">ROI</span>
+    <h1>The Real Cost of a Slow Hire: $1,500/Week You're Probably Not Counting</h1>
+    <p class="post-meta">5 min read · Updated June 2026</p>
 
     <div class="prose">
       <p>Most HR teams track cost-per-hire. Very few track the cost of <em>time-to-hire</em>. These are different numbers, and the second one is usually much bigger.</p>
@@ -49,10 +80,10 @@
 
       <h3>1. Lost Productivity ($500–$2,000/week per open role)</h3>
       <p>Every open role means work that isn't getting done, or work that's being absorbed by existing employees at the cost of their own output. For a $60,000/year role, the productivity cost of the position being unfilled is roughly $1,150/week. For a $40,000/year role in retail or logistics, it's around $770/week.</p>
-      <p>Multiply that by the number of open roles and the number of weeks they stay open. Most companies hiring at volume have 5-20 roles open at any time for 3-6 weeks each. That's $11,000–$240,000 in lost productivity per hiring cycle.</p>
+      <p>Multiply that by the number of open roles and the number of weeks they stay open. Most companies hiring at volume have 5–20 roles open at any time for 3–6 weeks each. That's $11,000–$240,000 in lost productivity per hiring cycle.</p>
 
       <h3>2. Recruiter Time ($300–$600/week per active role)</h3>
-      <p>An internal recruiter spending 10 hours/week per active role (reviewing resumes, scheduling screens, conducting interviews) at a burdened cost of $35-60/hour is adding $350–$600/week in labor cost per role. At 10 open roles, that's $3,500–$6,000/week in recruiter labor — most of it on tasks that could be automated.</p>
+      <p>An internal recruiter spending 10 hours/week per active role (reviewing resumes, scheduling screens, conducting interviews) at a burdened cost of $35–60/hour is adding $350–$600/week in labor cost per role. At 10 open roles, that's $3,500–$6,000/week in recruiter labor — most of it on tasks that could be automated.</p>
 
       <h3>3. Lost Candidates (Unquantified but Real)</h3>
       <p>Top candidates — especially in competitive markets — are typically off the market within 10 days. A 30-day hiring process means you're not competing for the best talent. You're getting whoever is still available after 3 weeks. The cost here is harder to calculate but shows up in quality of hire and eventual performance.</p>
@@ -65,29 +96,35 @@
         <li>Total cost per hiring cycle: <strong>~$50,600</strong></li>
       </ul>
       <p>Cut time-to-hire from 28 days to 7 days (3 weeks faster), and you save roughly <strong>$38,000 per hiring cycle</strong>.</p>
-      <p>An AI hiring platform at $149/month costs $1,788/year. The ROI on the first hiring cycle alone is over 20×.</p>
+      <p>An AI hiring platform at €149/month costs €1,788/year. The ROI on the first hiring cycle alone is over 20×.</p>
 
       <h2>Why This Calculation Gets Ignored</h2>
       <p>The productivity loss is invisible — it shows up as "everyone's a bit busier" rather than a line item on a budget. The recruiter time is seen as fixed overhead. And the lost candidates never appear in any report because you never knew who you didn't hire.</p>
       <p>This is why hiring speed is treated as a nice-to-have rather than a financial imperative. But the math is clear: slow hiring is expensive, and faster hiring — even if it requires investment — almost always pays for itself quickly.</p>
 
       <h2>What to Do About It</h2>
-      <p>The fastest wins come from automating the first two phases of hiring: resume screening and first-round interviews. These are the steps that take the most recruiter time and create the most candidate drop-off. Automating them with AI typically cuts time-to-hire by 60-75% without reducing quality — and often improving it, because more candidates are evaluated more consistently.</p>
+      <p>The fastest wins come from automating the first two phases of hiring: resume screening and first-round interviews. These are the steps that take the most recruiter time and create the most candidate drop-off. Automating them with AI typically cuts time-to-hire by 60–75% without reducing quality — and often improving it, because more candidates are evaluated more consistently.</p>
     </div>
 
-    <div class="mt-16 bg-indigo-50 rounded-2xl p-8 text-center">
-      <h3 class="text-2xl font-black mb-2">Calculate your savings</h3>
-      <p class="text-gray-500 mb-6">Filtario cuts hiring time from 30 days to 7. Start free for 14 days and see the difference.</p>
-      <a href="/#pricing" class="inline-block gradient-bg text-white font-bold px-8 py-4 rounded-2xl hover:opacity-90 transition">Start free — no card required</a>
+    <div class="cta-box">
+      <h3>Calculate your savings</h3>
+      <p>Filtario cuts hiring time from 30 days to 7. See the difference — book a 20-minute demo.</p>
+      <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo →</a>
     </div>
   </article>
 
-  <footer class="border-t border-gray-100 py-8 px-6">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <span class="font-bold">Filtario</span>
-      <p class="text-sm text-gray-400">© 2026 Filtario. All rights reserved.</p>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Filtario</span>
+      <div class="footer-links">
+        <a href="/blog">Blog</a>
+        <a href="/alternatives/greenhouse">vs Greenhouse</a>
+        <a href="/alternatives/bamboohr">vs BambooHR</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <span class="footer-copy">© 2026 Filtario. All rights reserved.</span>
     </div>
   </footer>
-
 </body>
 </html>

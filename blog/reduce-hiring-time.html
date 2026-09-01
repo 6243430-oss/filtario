@@ -6,71 +6,100 @@
   <title>How to Cut Your Hiring Cycle from 30 Days to 7 | Filtario</title>
   <meta name="description" content="Most companies spend 3-4 weeks filling a single role. Here's exactly how AI automation eliminates the bottlenecks that slow you down."/>
   <meta name="keywords" content="reduce hiring time, speed up recruitment, hiring cycle, time to hire, AI recruiting"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-    .prose p { margin-bottom: 1.25rem; color: #4b5563; line-height: 1.8; }
-    .prose h2 { font-size: 1.5rem; font-weight: 800; margin: 2rem 0 1rem; color: #111827; }
-    .prose h3 { font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #111827; }
-    .prose ul { margin: 1rem 0 1.25rem 1.5rem; }
-    .prose ul li { margin-bottom: 0.5rem; color: #4b5563; list-style: disc; }
-    .prose strong { color: #111827; font-weight: 700; }
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .lang-switch{display:flex;background:#fff;border:1px solid #e8e9f0;border-radius:20px;padding:3px;gap:2px}
+    .lang-switch a{padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text);transition:all .15s}
+    .lang-switch a.active,.lang-switch a:hover{background:var(--navy);color:#fff}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none;transition:opacity .15s}
+    .btn-demo:hover{opacity:.88}
+    article{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+    .back{font-size:.875rem;color:var(--accent);text-decoration:none;font-weight:600;display:inline-block;margin-bottom:2rem}
+    .back:hover{text-decoration:underline}
+    .post-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block}
+    h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:var(--navy)}
+    .post-meta{font-size:.85rem;color:var(--text);opacity:.5;margin-bottom:3rem}
+    .prose p{margin-bottom:1.35rem;color:var(--text);line-height:1.85;font-size:.985rem}
+    .prose h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--navy)}
+    .prose h3{font-size:1.05rem;font-weight:700;margin:1.75rem 0 .75rem;color:var(--navy)}
+    .prose ul{margin:1rem 0 1.35rem 1.5rem}
+    .prose ul li{margin-bottom:.6rem;color:var(--text);list-style:disc;line-height:1.7;font-size:.985rem}
+    .prose strong{color:var(--navy);font-weight:700}
+    .prose em{font-style:italic}
+    .cta-box{background:var(--lavender);border:1px solid var(--border);border-radius:20px;padding:2.5rem;text-align:center;margin-top:4rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:.75rem}
+    .cta-box p{color:var(--text);opacity:.7;margin-bottom:1.75rem;line-height:1.6}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-copy{font-size:.8rem;color:var(--text);opacity:.45}
   </style>
 </head>
-<body class="bg-white text-gray-900 antialiased">
-
-  <nav class="border-b border-gray-100 px-6 py-4">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">F</span>
-        </div>
-        <span class="text-xl font-bold">Filtario</span>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
       </a>
-      <a href="/#pricing" class="gradient-bg text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition">Start free trial</a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/" class="active">EN</a>
+          <a href="/es">ES</a>
+        </div>
+        <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo</a>
+      </div>
     </div>
   </nav>
 
-  <article class="max-w-3xl mx-auto px-6 py-16">
-    <a href="/blog" class="text-sm text-indigo-600 font-semibold hover:underline">← Blog</a>
-    <div class="mt-6 mb-4">
-      <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Hiring Strategy</span>
-    </div>
-    <h1 class="text-4xl font-black leading-tight mb-4">How to Cut Your Hiring Cycle from 30 Days to 7</h1>
-    <p class="text-gray-400 text-sm mb-10">8 min read · Updated June 2026</p>
+  <article>
+    <a href="/blog" class="back">← Blog</a>
+    <span class="post-tag">Hiring Strategy</span>
+    <h1>How to Cut Your Hiring Cycle from 30 Days to 7</h1>
+    <p class="post-meta">8 min read · Updated June 2026</p>
 
     <div class="prose">
-      <p>The average time-to-hire in the US is 23-30 days depending on the industry. In retail, logistics, and hospitality — where you're filling 10, 20, or 50 roles at a time — that number can stretch even longer. And every extra week costs you money, productivity, and often the best candidates.</p>
-
+      <p>The average time-to-hire in the US is 23–30 days depending on the industry. In retail, logistics, and hospitality — where you're filling 10, 20, or 50 roles at a time — that number can stretch even longer. And every extra week costs you money, productivity, and often the best candidates.</p>
       <p>The good news: the bottlenecks that slow down hiring are almost all manual and repetitive. Which means they're almost all automatable.</p>
-
       <p>Here's exactly where time gets lost and what to do about each one.</p>
 
       <h2>Where the 30 Days Actually Go</h2>
       <p>Before you can fix the problem, you need to understand it. Here's a typical breakdown for a company hiring 5+ roles simultaneously:</p>
       <ul>
-        <li><strong>Days 1-5:</strong> Job post goes up, applications trickle in</li>
-        <li><strong>Days 5-12:</strong> HR manually reviews resumes (200-500 per role)</li>
-        <li><strong>Days 12-18:</strong> Phone screens scheduled and conducted</li>
-        <li><strong>Days 18-24:</strong> First-round interviews booked and held</li>
-        <li><strong>Days 24-30:</strong> Second rounds, offers, back-and-forth</li>
+        <li><strong>Days 1–5:</strong> Job post goes up, applications trickle in</li>
+        <li><strong>Days 5–12:</strong> HR manually reviews resumes (200–500 per role)</li>
+        <li><strong>Days 12–18:</strong> Phone screens scheduled and conducted</li>
+        <li><strong>Days 18–24:</strong> First-round interviews booked and held</li>
+        <li><strong>Days 24–30:</strong> Second rounds, offers, back-and-forth</li>
       </ul>
-      <p>Notice that Days 5-18 — the resume review and phone screen phase — are almost entirely manual. This is where AI makes the biggest impact.</p>
+      <p>Notice that Days 5–18 — the resume review and phone screen phase — are almost entirely manual. This is where AI makes the biggest impact.</p>
 
-      <h2>Step 1: Automate Resume Screening (Saves 7-10 Days)</h2>
+      <h2>Step 1: Automate Resume Screening (Saves 7–10 Days)</h2>
       <p>Manual resume screening is the single biggest time sink in most hiring processes. A recruiter reading 300 resumes at 3 minutes each is 15 hours of work — per role. At 5 open roles simultaneously, that's 75 hours just reading CVs.</p>
       <p>AI resume screening works differently: you define what a great candidate looks like (required skills, experience, deal-breakers), and the system reads every resume and produces a ranked list in minutes. Not days.</p>
-      <p>The result: your team only looks at the top 10-15% of applicants. Everything else is filtered automatically.</p>
+      <p>The result: your team only looks at the top 10–15% of applicants. Everything else is filtered automatically.</p>
 
-      <h2>Step 2: Replace Phone Screens with AI Interviews (Saves 5-7 Days)</h2>
+      <h2>Step 2: Replace Phone Screens with AI Interviews (Saves 5–7 Days)</h2>
       <p>Phone screens exist to answer a simple question: does this person meet the basic requirements and can they communicate? An AI interviewer can answer both questions without anyone on your team lifting a finger.</p>
       <p>Candidates receive a link, complete a structured interview at their own pace (24/7, no scheduling required), and your team receives a report with scores and key quotes. The best candidates rise to the top automatically.</p>
-      <p>Companies using this approach typically cut their time-to-shortlist from 18 days to 4-5 days.</p>
+      <p>Companies using this approach typically cut their time-to-shortlist from 18 days to 4–5 days.</p>
 
       <h2>Step 3: Aggregate from All Job Boards in One Place</h2>
-      <p>If you're posting to Indeed, LinkedIn, and local job boards separately, you're also managing three different inboxes of applications. Unifying everything into one pipeline — ranked and scored — eliminates another 2-3 days of coordination overhead.</p>
+      <p>If you're posting to Indeed, LinkedIn, and local job boards separately, you're also managing three different inboxes of applications. Unifying everything into one pipeline — ranked and scored — eliminates another 2–3 days of coordination overhead.</p>
 
       <h2>Step 4: Set Your Hiring Standards Once, Not Per Recruiter</h2>
       <p>One of the hidden costs of manual hiring is inconsistency. Different recruiters weight different things. An AI system applies the same criteria to every candidate, every time. This also means you can hire faster without sacrificing quality — because the quality bar is locked in, not dependent on who happens to be reviewing that day.</p>
@@ -78,10 +107,10 @@
       <h2>What 7-Day Hiring Actually Looks Like</h2>
       <ul>
         <li><strong>Day 1:</strong> Job goes live across all boards simultaneously</li>
-        <li><strong>Days 1-3:</strong> AI screens all incoming resumes in real time</li>
-        <li><strong>Days 2-4:</strong> Top candidates complete AI first-round interviews automatically</li>
-        <li><strong>Day 4:</strong> Your team receives a ranked shortlist of 5-10 candidates with full reports</li>
-        <li><strong>Days 5-6:</strong> Human interviews with the best candidates</li>
+        <li><strong>Days 1–3:</strong> AI screens all incoming resumes in real time</li>
+        <li><strong>Days 2–4:</strong> Top candidates complete AI first-round interviews automatically</li>
+        <li><strong>Day 4:</strong> Your team receives a ranked shortlist of 5–10 candidates with full reports</li>
+        <li><strong>Days 5–6:</strong> Human interviews with the best candidates</li>
         <li><strong>Day 7:</strong> Offer out</li>
       </ul>
 
@@ -90,19 +119,25 @@
       <p>Companies that automate these steps don't just hire faster — they hire better, because they're making decisions based on structured data rather than whoever happened to read the resume on a Tuesday afternoon.</p>
     </div>
 
-    <div class="mt-16 bg-indigo-50 rounded-2xl p-8 text-center">
-      <h3 class="text-2xl font-black mb-2">Ready to hire 7× faster?</h3>
-      <p class="text-gray-500 mb-6">Filtario automates resume screening, AI interviews, and candidate ranking. Setup takes 10 minutes.</p>
-      <a href="/#pricing" class="inline-block gradient-bg text-white font-bold px-8 py-4 rounded-2xl hover:opacity-90 transition">Start free — 14 days, no card</a>
+    <div class="cta-box">
+      <h3>Ready to hire 7× faster?</h3>
+      <p>Filtario automates resume screening, AI interviews, and candidate ranking. Setup takes 10 minutes.</p>
+      <a href="mailto:hello@filtario.com" class="btn-demo">Book a demo →</a>
     </div>
   </article>
 
-  <footer class="border-t border-gray-100 py-8 px-6">
-    <div class="max-w-3xl mx-auto flex items-center justify-between">
-      <span class="font-bold">Filtario</span>
-      <p class="text-sm text-gray-400">© 2026 Filtario. All rights reserved.</p>
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Filtario</span>
+      <div class="footer-links">
+        <a href="/blog">Blog</a>
+        <a href="/alternatives/greenhouse">vs Greenhouse</a>
+        <a href="/alternatives/bamboohr">vs BambooHR</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+      <span class="footer-copy">© 2026 Filtario. All rights reserved.</span>
     </div>
   </footer>
-
 </body>
 </html>
