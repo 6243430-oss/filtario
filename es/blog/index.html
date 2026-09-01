@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog de Filtario — Contratación con IA</title>
+  <meta name="description" content="Guías prácticas sobre contratación con IA, automatización de reclutamiento masivo y cómo reducir el tiempo de selección para equipos de RRHH."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .lang-switch{display:flex;background:#fff;border:1px solid #e8e9f0;border-radius:20px;padding:3px;gap:2px}
+    .lang-switch a{padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text);transition:all .15s}
+    .lang-switch a.active,.lang-switch a:hover{background:var(--navy);color:#fff}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none;transition:opacity .15s}
+    .btn-demo:hover{opacity:.88}
+    main{max-width:800px;margin:0 auto;padding:4rem 2rem 6rem}
+    .page-header{margin-bottom:3.5rem}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:2.75rem;font-weight:900;line-height:1.15;margin-bottom:.75rem}
+    .page-header p{color:var(--text);opacity:.7;font-size:1.05rem}
+    .posts{display:flex;flex-direction:column;gap:1.5rem}
+    .post-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem 2.25rem;text-decoration:none;display:block;transition:border-color .2s,box-shadow .2s}
+    .post-card:hover{border-color:var(--accent);box-shadow:0 4px 24px rgba(91,118,255,.1)}
+    .post-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;display:block}
+    .post-card h2{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;line-height:1.35;margin-bottom:.75rem;color:var(--navy)}
+    .post-card p{font-size:.95rem;color:var(--text);opacity:.75;line-height:1.7;margin-bottom:1rem}
+    .post-meta{font-size:.8rem;color:var(--text);opacity:.5}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-copy{font-size:.8rem;color:var(--text);opacity:.45}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/es" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/blog">EN</a>
+          <a href="/es/blog" class="active">ES</a>
+        </div>
+        <a href="mailto:hello@filtario.com" class="btn-demo">Solicitar demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Blog</h1>
+      <p>Contratación con IA, automatización de reclutamiento y cómo escalar tu equipo más rápido.</p>
+    </div>
+
+    <div class="posts">
+      <a href="/es/blog/reducir-tiempo-contratacion" class="post-card">
+        <span class="post-tag">Estrategia</span>
+        <h2>Cómo Reducir tu Ciclo de Contratación de 30 Días a 7</h2>
+        <p>La mayoría de las empresas tardan 3-4 semanas en cubrir un puesto. Así es exactamente cómo la automatización con IA elimina los cuellos de botella que te frenan.</p>
+        <span class="post-meta">8 min de lectura</span>
+      </a>
+
+      <a href="/es/blog/guia-software-ia-contratacion" class="post-card">
+        <span class="post-tag">Herramientas IA</span>
+        <h2>La Guía Completa de Software de Contratación con IA en 2026</h2>
+        <p>Qué hacen realmente las plataformas de contratación con IA, qué buscar y cómo las empresas de 100-2000 empleados las usan para contratar a escala.</p>
+        <span class="post-meta">12 min de lectura</span>
+      </a>
+
+      <a href="/es/blog/contratacion-masiva-retail" class="post-card">
+        <span class="post-tag">Industria</span>
+        <h2>Contratación Masiva en Retail: Cómo Cubrir 50 Puestos Sin Agotar a tu Equipo de RRHH</h2>
+        <p>Las empresas de retail enfrentan el mayor desafío de contratación: alto volumen, alta rotación y plazos ajustados. Este es el sistema que funciona.</p>
+        <span class="post-meta">7 min de lectura</span>
+      </a>
+
+      <a href="/es/blog/entrevistas-automatizadas-ia" class="post-card">
+        <span class="post-tag">Tecnología</span>
+        <h2>Entrevistas Automatizadas con IA: ¿Los Candidatos Realmente las Aceptan?</h2>
+        <p>Analizamos más de 10.000 sesiones de entrevista con IA. Esto es lo que dicen los datos sobre tasas de finalización, experiencia del candidato y calidad de contratación.</p>
+        <span class="post-meta">6 min de lectura</span>
+      </a>
+
+      <a href="/es/blog/costo-contratacion-lenta" class="post-card">
+        <span class="post-tag">ROI</span>
+        <h2>El Coste Real de una Contratación Lenta: $1.500/Semana que Probablemente No Estás Contando</h2>
+        <p>Cada puesto vacante le cuesta dinero a tu empresa más allá del salario. Aquí te explicamos cómo calcular el coste real y hacer el caso de negocio para contratar más rápido.</p>
+        <span class="post-meta">5 min de lectura</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Filtario</span>
+      <div class="footer-links">
+        <a href="/es/blog">Blog</a>
+        <a href="/es/alternatives/greenhouse">vs Greenhouse</a>
+        <a href="/es/alternatives/bamboohr">vs BambooHR</a>
+        <a href="/es/alternatives/lever">vs Lever</a>
+        <a href="/es/privacy">Privacidad</a>
+        <a href="/es/terms">Términos</a>
+      </div>
+      <span class="footer-copy">© 2026 Filtario. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+</body>
+</html>

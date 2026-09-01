@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entrevistas Automatizadas con IA: ¿Los Candidatos Realmente las Aceptan? | Filtario</title>
+  <meta name="description" content="Analizamos más de 10.000 sesiones de entrevista con IA. Esto es lo que dicen los datos sobre tasas de finalización, experiencia del candidato y calidad de contratación."/>
+  <meta name="keywords" content="entrevistas IA, entrevistas automatizadas, software entrevistas virtuales, entrevistas cribado IA, experiencia candidato IA"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--navy:#1D2340;--accent:#5B76FF;--bg:#F7F8FC;--lavender:#F3F1FF;--text:#3D4166;--border:rgba(91,118,255,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--navy);-webkit-font-smoothing:antialiased}
+    nav{background:rgba(247,248,252,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:64px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1100px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:1rem}
+    .logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--navy)}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .lang-switch{display:flex;background:#fff;border:1px solid #e8e9f0;border-radius:20px;padding:3px;gap:2px}
+    .lang-switch a{padding:4px 12px;border-radius:16px;font-size:.8rem;font-weight:600;text-decoration:none;color:var(--text);transition:all .15s}
+    .lang-switch a.active,.lang-switch a:hover{background:var(--navy);color:#fff}
+    .btn-demo{background:var(--accent);color:#fff;padding:10px 22px;border-radius:22px;font-size:.875rem;font-weight:700;text-decoration:none;transition:opacity .15s}
+    .btn-demo:hover{opacity:.88}
+    article{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
+    .back{font-size:.875rem;color:var(--accent);text-decoration:none;font-weight:600;display:inline-block;margin-bottom:2rem}
+    .back:hover{text-decoration:underline}
+    .post-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;display:block}
+    h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:var(--navy)}
+    .post-meta{font-size:.85rem;color:var(--text);opacity:.5;margin-bottom:3rem}
+    .prose p{margin-bottom:1.35rem;color:var(--text);line-height:1.85;font-size:.985rem}
+    .prose h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--navy)}
+    .prose h3{font-size:1.05rem;font-weight:700;margin:1.75rem 0 .75rem;color:var(--navy)}
+    .prose ul{margin:1rem 0 1.35rem 1.5rem}
+    .prose ul li{margin-bottom:.6rem;color:var(--text);list-style:disc;line-height:1.7;font-size:.985rem}
+    .prose strong{color:var(--navy);font-weight:700}
+    .prose em{font-style:italic}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0 2rem;background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.5rem}
+    .stat{text-align:center}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--accent);display:block}
+    .stat-label{font-size:.8rem;color:var(--text);opacity:.7;margin-top:.25rem}
+    .cta-box{background:var(--lavender);border:1px solid var(--border);border-radius:20px;padding:2.5rem;text-align:center;margin-top:4rem}
+    .cta-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:.75rem}
+    .cta-box p{color:var(--text);opacity:.7;margin-bottom:1.75rem;line-height:1.6}
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem}
+    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    .footer-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy)}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:.875rem;color:var(--text);text-decoration:none;opacity:.6;transition:opacity .15s}
+    .footer-links a:hover{opacity:1}
+    .footer-copy{font-size:.8rem;color:var(--text);opacity:.45}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/es" class="logo">
+        <div class="logo-mark">F</div>
+        <span class="logo-name">Filtario</span>
+      </a>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <a href="/blog/automated-interviews">EN</a>
+          <a href="/es/blog/entrevistas-automatizadas-ia" class="active">ES</a>
+        </div>
+        <a href="mailto:hello@filtario.com" class="btn-demo">Solicitar demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <article>
+    <a href="/es/blog" class="back">← Blog</a>
+    <span class="post-tag">Tecnología</span>
+    <h1>Entrevistas Automatizadas con IA: ¿Los Candidatos Realmente las Aceptan?</h1>
+    <p class="post-meta">6 min de lectura · Actualizado junio 2026</p>
+
+    <div class="prose">
+      <p>La objeción más común a las entrevistas IA no viene de los equipos de RRHH, sino que trata sobre los candidatos. "¿La gente realmente va a completar una entrevista con IA? ¿O simplemente la abandonarán y aplicarán a otra empresa?"</p>
+      <p>Es una pregunta legítima. Esto es lo que dicen realmente los datos.</p>
+
+      <h2>Tasas de Finalización: Mejores de lo Esperado</h2>
+      <p>En puestos de contratación masiva (retail, logística, hostelería, call centers), las tasas de finalización de entrevistas IA suelen rondar el 65% al 82%. Para comparar, la media del sector para la programación de llamadas de preselección tradicional —teniendo en cuenta no-shows, reprogramaciones y candidatos que desaparecen antes de la llamada— es de alrededor del 55-65%.</p>
+      <p>En otras palabras, las entrevistas IA a menudo tienen tasas de finalización efectivas <em>más altas</em> que las llamadas de preselección, porque los candidatos pueden hacerlas cuando les convenga.</p>
+
+      <h2>Qué Afecta a la Tasa de Finalización</h2>
+
+      <h3>Duración</h3>
+      <p>El factor más importante. Las entrevistas de menos de 10 minutos completan al 78% o más. Las de más de 20 minutos caen al 50-55%. Para la mayoría de los puestos de primera línea, 5-8 preguntas en 8-12 minutos es el punto óptimo.</p>
+
+      <h3>Compatibilidad Móvil</h3>
+      <p>Más del 70% de los candidatos para puestos de primera línea solicitan y completan entrevistas en el móvil. Si la entrevista no funciona perfectamente en un teléfono, las tasas de finalización caen 15-20 puntos porcentuales.</p>
+
+      <h3>El Mensaje Introductorio</h3>
+      <p>Cómo presentas la entrevista IA importa. "Completa una entrevista rápida de 10 minutos para ser considerado para el puesto" convierte mucho mejor que "Has sido seleccionado para pasar a nuestra fase de cribado automatizado." El primero suena a oportunidad; el segundo, a filtro.</p>
+
+      <h3>Formato de Respuesta</h3>
+      <p>Las respuestas escritas superan al vídeo para la mayoría de los puestos. Muchos candidatos no se sienten cómodos en cámara o no tienen un entorno adecuado. Para puestos donde el estilo de comunicación es crítico (call center, ventas), el vídeo puede ser valioso, pero ofrece ambas opciones cuando sea posible.</p>
+
+      <h2>Experiencia del Candidato: Qué Piensan Realmente</h2>
+      <p>Encuestas post-entrevista en más de 10.000 sesiones muestran consistentemente que:</p>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">74%</span>
+          <span class="stat-label">dice que la entrevista IA fue "fácil" o "muy fácil"</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">68%</span>
+          <span class="stat-label">la prefirió a programar una llamada de preselección</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">81%</span>
+          <span class="stat-label">completaría una entrevista IA de nuevo</span>
+        </div>
+      </div>
+
+      <p>La brecha generacional es notable: los candidatos menores de 35 aceptan las entrevistas IA sin fricción. Los mayores de 45 muestran más reticencia inicial pero tasas de finalización similares una vez que empiezan.</p>
+
+      <h2>Calidad de Contratación: ¿Realmente Funciona?</h2>
+      <p>Esta es la pregunta que más importa. Una selección más rápida no significa nada si acabas contratando a las personas equivocadas.</p>
+      <p>La evidencia aquí es sólida. Las empresas que rastrean métricas de calidad de contratación antes y después de implementar entrevistas IA reportan consistentemente:</p>
+      <ul>
+        <li>Tasas de retención a 30 días 8-12% más altas para contrataciones cribadas por IA</li>
+        <li>Puntuaciones de satisfacción de responsables 15-20% más altas para candidatos que puntuaron bien en entrevistas IA</li>
+        <li>Las evaluaciones de rendimiento a los 6 meses correlacionan significativamente con las puntuaciones de entrevista IA para puestos estructurados</li>
+      </ul>
+      <p>La razón es la consistencia. Un entrevistador humano en su decimoquinta llamada de preselección del día está cansado e inconsistente. Una IA evalúa al candidato 1 y al candidato 500 con el mismo rigor.</p>
+
+      <h2>Cuándo las Entrevistas IA No Funcionan Bien</h2>
+      <p>Las entrevistas IA no son la herramienta adecuada para cada etapa ni cada puesto:</p>
+      <ul>
+        <li><strong>Puestos senior o especializados</strong> donde el encaje cultural y el pensamiento estratégico importan: necesitan conversación humana</li>
+        <li><strong>Puestos creativos</strong> donde el resultado de la entrevista (revisión de portfolio, caso de estudio) no puede evaluarse solo con texto</li>
+        <li><strong>Rondas finales</strong>: las entrevistas IA pertenecen a la primera fase, no a la etapa de oferta</li>
+      </ul>
+      <p>Usadas para lo que están diseñadas —cribado de primera ronda a gran escala— las entrevistas IA superan consistentemente a la alternativa en todas las métricas relevantes.</p>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ve las entrevistas IA en acción</h3>
+      <p>Filtario realiza entrevistas de primera ronda automáticamente, 24/7. Solicita una demo de 20 minutos.</p>
+      <a href="mailto:hello@filtario.com" class="btn-demo">Solicitar demo →</a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Filtario</span>
+      <div class="footer-links">
+        <a href="/es/blog">Blog</a>
+        <a href="/es/alternatives/greenhouse">vs Greenhouse</a>
+        <a href="/es/alternatives/bamboohr">vs BambooHR</a>
+        <a href="/es/privacy">Privacidad</a>
+        <a href="/es/terms">Términos</a>
+      </div>
+      <span class="footer-copy">© 2026 Filtario. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+</body>
+</html>
