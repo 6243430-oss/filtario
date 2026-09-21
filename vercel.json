@@ -14,7 +14,19 @@
     { "source": "/alternatives/bamboohr", "destination": "/alternatives/bamboohr.html" },
     { "source": "/alternatives/lever", "destination": "/alternatives/lever.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/terms", "destination": "/terms.html" }
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/es/blog", "destination": "/es/blog/index.html" },
+    { "source": "/es/blog/", "destination": "/es/blog/index.html" },
+    { "source": "/es/blog/reducir-tiempo-contratacion", "destination": "/es/blog/reducir-tiempo-contratacion.html" },
+    { "source": "/es/blog/costo-contratacion-lenta", "destination": "/es/blog/costo-contratacion-lenta.html" },
+    { "source": "/es/blog/guia-software-ia-contratacion", "destination": "/es/blog/guia-software-ia-contratacion.html" },
+    { "source": "/es/blog/contratacion-masiva-retail", "destination": "/es/blog/contratacion-masiva-retail.html" },
+    { "source": "/es/blog/entrevistas-automatizadas-ia", "destination": "/es/blog/entrevistas-automatizadas-ia.html" },
+    { "source": "/es/alternatives/greenhouse", "destination": "/es/alternatives/greenhouse.html" },
+    { "source": "/es/alternatives/bamboohr", "destination": "/es/alternatives/bamboohr.html" },
+    { "source": "/es/alternatives/lever", "destination": "/es/alternatives/lever.html" },
+    { "source": "/es/privacy", "destination": "/es/privacy.html" },
+    { "source": "/es/terms", "destination": "/es/terms.html" }
   ],
   "headers": [
     {
